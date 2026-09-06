@@ -1,0 +1,14 @@
+{
+  "project_name": "embedded_keyword_spotting",
+  "labels": [
+    "nyala",
+    "mati",
+    "naik",
+    "turun"
+  ],
+  "sample_rate_hz": 16000,
+  "channels": 1,
+  "bit_depth": 16,
+  "record_duration_s": 2.0,
+  "reference_file": "data/raw/nyala_001.wav"
+}
