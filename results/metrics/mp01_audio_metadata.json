@@ -1,0 +1,12 @@
+{
+  "file": "data/raw/nyala_001.wav",
+  "sample_rate_hz": 16000,
+  "channels": 1,
+  "bit_depth": 16,
+  "duration_s": 2.0,
+  "num_samples": 32000,
+  "peak_normalized": 1.0438737869262695,
+  "rms_normalized": 0.356140673160553,
+  "clipping_ratio": 0.08990625,
+  "quality_check": "CHECK"
+}

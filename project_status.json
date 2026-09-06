@@ -1,7 +1,7 @@
 {
-  "last_completed_mini_project": 0,
-  "next_mini_project": 1,
+  "last_completed_mini_project": 1,
+  "next_mini_project": 2,
   "next_input": "data/raw/nyala_001.wav",
   "config": "config/project_config.json",
-  "status": "waiting_for_reference_audio"
+  "status": "ready_for_mp02"
 }
