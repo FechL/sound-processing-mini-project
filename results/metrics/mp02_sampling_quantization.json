@@ -1,0 +1,25 @@
+{
+  "source_file": "data/raw/nyala_001.wav",
+  "source_sample_rate_hz": 16000,
+  "duration_s": 2.0,
+  "file_size_bytes": {
+    "16k16_baseline": 64044,
+    "8k16": 32044,
+    "16k8": 32044,
+    "8k8": 16044
+  },
+  "size_reduction_percent_vs_baseline": {
+    "16k16_baseline": 0.0,
+    "8k16": 49.96564861657611,
+    "16k8": 49.96564861657611,
+    "8k8": 74.94847292486415
+  },
+  "quantization_8bit_snr_db": 44.015010833740234,
+  "resample_8k_roundtrip_snr_db": 38.652923583984375,
+  "selected_format": {
+    "sample_rate_hz": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "reason": "Baseline proyek: menjaga informasi ucapan dan memudahkan analisis DSP/AI berikutnya"
+  }
+}
