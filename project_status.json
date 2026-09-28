@@ -1,8 +1,10 @@
 {
-  "last_completed_mini_project": 2,
+  "last_completed_mini_project": 3,
   "next_mini_project": 3,
   "next_input": "data/raw/nyala_001.wav",
   "audio_format": "config/audio_format_selected.json",
   "metrics": "results/metrics/mp02_sampling_quantization.json",
-  "status": "ready_for_mp03"
+  "status": "ready_for_mp04",
+  "spectral_config": "config/spectral_config.json",
+  "stft_reference": "features/intermediate/mp03_reference_stft.npz"
 }

@@ -1,0 +1,10 @@
+{
+  "sample_rate_hz": 16000,
+  "frame_ms": 25.0,
+  "hop_ms": 10.0,
+  "frame_samples": 400,
+  "hop_samples": 160,
+  "window": "hann",
+  "nfft": 512,
+  "frequency_resolution_hz": 31.25
+}

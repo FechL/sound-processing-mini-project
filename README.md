@@ -10,6 +10,10 @@ Mini Project 1 berfokus pada inisialisasi proyek dan perekaman dataset audio kat
 
 Mini Project 2 menganalisis pengaruh perubahan sample rate dan bit depth melalui resampling dari 16 kHz ke 8 kHz serta kuantisasi 8-bit. Hasil perbandingan ukuran file dan SNR digunakan untuk memilih format audio utama proyek, yaitu mono 16 kHz 16-bit.
 
+## Mini Project 3:
+
+Mini Project 3 membuat baseline analisis spektral menggunakan FFT dan STFT dari audio referensi. Konfigurasi spektral (frame 25 ms, hop 10 ms, window Hann, NFFT 512) ditetapkan, kemudian dihasilkan spectrum baseline, spektrogram, serta artefak numerik (frekuensi, waktu, magnitude STFT) yang akan dipakai pada Mini Project 4.
+
 ## Contributor:
 - 235150300111002 MUHAMMAD HILMI ZUHDI
 - 235150300111007 HANIIF ZAAHID NASHRULLAH

@@ -1,0 +1,16 @@
+{
+  "duration_s": 2.0,
+  "sample_rate_hz": 16000,
+  "frame_samples": 400,
+  "hop_samples": 160,
+  "nfft": 512,
+  "frequency_resolution_hz": 31.25,
+  "number_of_stft_frames": 198,
+  "dominant_frequencies_hz": [
+    62.5,
+    93.75,
+    125.0,
+    187.5,
+    218.75
+  ]
+}
