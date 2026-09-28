@@ -1,0 +1,8 @@
+{
+  "rt60_estimated_s": 0.3518645997519454,
+  "decay_slope_db_per_s": -170.52013769585886,
+  "rir_duration_s": 0.35,
+  "peak_before_normalization": 2.5396170616149902,
+  "normalization_gain": 0.37407214432394664,
+  "spectral_distance_db_rms": 5.399518966674805
+}

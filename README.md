@@ -14,6 +14,10 @@ Mini Project 2 menganalisis pengaruh perubahan sample rate dan bit depth melalui
 
 Mini Project 3 membuat baseline analisis spektral menggunakan FFT dan STFT dari audio referensi. Konfigurasi spektral (frame 25 ms, hop 10 ms, window Hann, NFFT 512) ditetapkan, kemudian dihasilkan spectrum baseline, spektrogram, serta artefak numerik (frekuensi, waktu, magnitude STFT) yang akan dipakai pada Mini Project 4.
 
+## Mini Project 4:
+
+Mini Project 4 mensimulasikan dan mengkarakterisasi channel akustik menggunakan respons impuls sintetis yang reproducible (direct path, early reflections, dan reverberation tail). Respons impuls dikonvolusikan dengan audio referensi untuk menghasilkan audio channel-affected, kemudian dihitung respons frekuensi, energy decay curve, estimasi RT60, dan spectral distance sebagai baseline sebelum desain filter pada Mini Project 5.
+
 ## Contributor:
 - 235150300111002 MUHAMMAD HILMI ZUHDI
 - 235150300111007 HANIIF ZAAHID NASHRULLAH

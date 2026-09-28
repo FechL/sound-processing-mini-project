@@ -1,0 +1,19 @@
+{
+  "sample_rate_hz": 16000,
+  "ir_duration_s": 0.35,
+  "reflection_delays_ms": [
+    16,
+    34,
+    58
+  ],
+  "reflection_gains": [
+    0.42,
+    -0.27,
+    0.18
+  ],
+  "tail_start_s": 0.075,
+  "rt60_target_s": 0.35,
+  "random_seed": 2026,
+  "output_target_peak": 0.95,
+  "normalization_gain": 0.37407214432394664
+}
