@@ -1,0 +1,152 @@
+{
+  "n_samples_total": 24,
+  "n_train": 16,
+  "n_validation": 4,
+  "n_test": 4,
+  "n_features_input": 39,
+  "near_zero_variance_features": [],
+  "n_redundant_pairs_abs_corr_ge_threshold": 82,
+  "top_10_mutual_information": [
+    {
+      "feature": "rolloff85_hz_mean",
+      "score": 1.464062326562327
+    },
+    {
+      "feature": "centroid_hz_mean",
+      "score": 1.4432289932289937
+    },
+    {
+      "feature": "voiced_ratio",
+      "score": 1.4223956598956602
+    },
+    {
+      "feature": "mfcc07_mean",
+      "score": 1.4223956598956602
+    },
+    {
+      "feature": "mfcc08_mean",
+      "score": 1.401562326562327
+    },
+    {
+      "feature": "bandwidth_hz_mean",
+      "score": 1.3807289932289937
+    },
+    {
+      "feature": "rolloff85_hz_std",
+      "score": 1.3630206598956605
+    },
+    {
+      "feature": "mfcc11_mean",
+      "score": 1.3598956598956602
+    },
+    {
+      "feature": "mfcc01_mean",
+      "score": 1.3598956598956602
+    },
+    {
+      "feature": "rms_std",
+      "score": 1.3598956598956602
+    }
+  ],
+  "candidate_cv": {
+    "raw39": {
+      "family": "raw",
+      "dim": 39,
+      "fold_macro_f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mean_macro_f1": 1.0,
+      "std_macro_f1": 0.0
+    },
+    "mi8": {
+      "family": "selection",
+      "dim": 8,
+      "fold_macro_f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mean_macro_f1": 1.0,
+      "std_macro_f1": 0.0
+    },
+    "mi12": {
+      "family": "selection",
+      "dim": 12,
+      "fold_macro_f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mean_macro_f1": 1.0,
+      "std_macro_f1": 0.0
+    },
+    "rfe8": {
+      "family": "selection",
+      "dim": 8,
+      "fold_macro_f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mean_macro_f1": 1.0,
+      "std_macro_f1": 0.0
+    },
+    "rfe12": {
+      "family": "selection",
+      "dim": 12,
+      "fold_macro_f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mean_macro_f1": 1.0,
+      "std_macro_f1": 0.0
+    },
+    "pca6": {
+      "family": "projection",
+      "dim": 6,
+      "fold_macro_f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mean_macro_f1": 1.0,
+      "std_macro_f1": 0.0
+    },
+    "lda3": {
+      "family": "projection",
+      "dim": 3,
+      "fold_macro_f1": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mean_macro_f1": 1.0,
+      "std_macro_f1": 0.0
+    }
+  },
+  "best_cv_macro_f1": 1.0,
+  "chosen_candidate": "mi8",
+  "chosen_output_dim": 8,
+  "selected_feature_names": [
+    "mfcc07_mean",
+    "mfcc08_mean",
+    "mfcc11_mean",
+    "centroid_hz_mean",
+    "bandwidth_hz_mean",
+    "rolloff85_hz_mean",
+    "rolloff85_hz_std",
+    "voiced_ratio"
+  ],
+  "validation_used_for_selection": false,
+  "test_used_for_selection": false
+}

@@ -1,0 +1,59 @@
+{
+  "n_frames": 201,
+  "frame_feature_shapes": {
+    "log_mel": [
+      201,
+      26
+    ],
+    "mfcc": [
+      201,
+      13
+    ]
+  },
+  "sample_vector_dim": 39,
+  "voiced_ratio": 0.40298507462686567,
+  "mean_f0_hz_voiced": 217.55276556607464,
+  "std_f0_hz_voiced": 81.5302543124238,
+  "nan_or_inf_count": 0,
+  "feature_names": [
+    "mfcc01_mean",
+    "mfcc01_std",
+    "mfcc02_mean",
+    "mfcc02_std",
+    "mfcc03_mean",
+    "mfcc03_std",
+    "mfcc04_mean",
+    "mfcc04_std",
+    "mfcc05_mean",
+    "mfcc05_std",
+    "mfcc06_mean",
+    "mfcc06_std",
+    "mfcc07_mean",
+    "mfcc07_std",
+    "mfcc08_mean",
+    "mfcc08_std",
+    "mfcc09_mean",
+    "mfcc09_std",
+    "mfcc10_mean",
+    "mfcc10_std",
+    "mfcc11_mean",
+    "mfcc11_std",
+    "mfcc12_mean",
+    "mfcc12_std",
+    "mfcc13_mean",
+    "mfcc13_std",
+    "rms_mean",
+    "rms_std",
+    "zcr_mean",
+    "zcr_std",
+    "centroid_hz_mean",
+    "centroid_hz_std",
+    "bandwidth_hz_mean",
+    "bandwidth_hz_std",
+    "rolloff85_hz_mean",
+    "rolloff85_hz_std",
+    "f0_hz_mean",
+    "f0_hz_std",
+    "voiced_ratio"
+  ]
+}

@@ -1,10 +1,10 @@
 {
-  "last_completed_mini_project": 6,
+  "last_completed_mini_project": 10,
   "next_mini_project": 5,
   "next_input": "data/raw/nyala_001.wav",
   "audio_format": "config/audio_format_selected.json",
   "metrics": "results/metrics/mp02_sampling_quantization.json",
-  "status": "ready_for_mp07",
+  "status": "ready_for_mp11",
   "spectral_config": "config/spectral_config.json",
   "stft_reference": "features/intermediate/mp03_reference_stft.npz",
   "channel_audio": "data/processed/mp04_channel/nyala_001_channel.wav",
@@ -24,5 +24,35 @@
   "filter_test_vector": "features/intermediate/mp06_filter_test_vector.npz",
   "filter_final_audio": "data/processed/mp06_design/nyala_001_filter_final.wav",
   "filter_design_metrics": "results/metrics/mp06_filter_design_metrics.json",
-  "mp07_input_audio": "data/processed/mp06_design/nyala_001_filter_final.wav"
+  "mp07_input_audio": "data/processed/mp06_design/nyala_001_filter_final.wav",
+  "preprocessing_config": "config/preprocessing_config.json",
+  "preprocessed_audio": "data/processed/mp07_preprocessing/nyala_001_preprocessed.wav",
+  "preprocessed_frames": "features/intermediate/mp07_preprocessed_frames.npz",
+  "preprocessing_metrics": "results/metrics/mp07_preprocessing_metrics.json",
+  "mp08_input_audio": "data/processed/mp07_preprocessing/nyala_001_preprocessed.wav",
+  "mp08_input_frames": "features/intermediate/mp07_preprocessed_frames.npz",
+  "feature_config": "config/feature_config.json",
+  "frame_features": "features/intermediate/mp08_frame_features.npz",
+  "sample_feature_vector": "features/intermediate/mp08_sample_feature_vector.npz",
+  "feature_metrics": "results/metrics/mp08_feature_metrics.json",
+  "feature_schema_dim": 39,
+  "mp09_input_feature_config": "config/feature_config.json",
+  "mp09_reference_feature_vector": "features/intermediate/mp08_sample_feature_vector.npz",
+  "mp09_reference_frame_features": "features/intermediate/mp08_frame_features.npz",
+  "mp10_dataset": "features/dataset/mp09_features_39d.npz",
+  "mp10_split": "splits/mp09_split.json",
+  "dataset_config": "config/dataset_config.json",
+  "dataset_metadata": "data/metadata/mp09_metadata.csv",
+  "completed_mini_projects": [
+    9,
+    10
+  ],
+  "mp10": {
+    "chosen_candidate": "mi8",
+    "final_method": "mutual_information",
+    "output_dim": 8,
+    "feature_reduction_config": "config/feature_reduction_config.json",
+    "final_feature_dataset": "features/dataset/mp10_features_final.npz",
+    "metrics": "results/metrics/mp10_feature_reduction_metrics.json"
+  }
 }

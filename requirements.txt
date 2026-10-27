@@ -2,3 +2,4 @@ numpy
 scipy
 matplotlib
 sounddevice
+scikit-learn

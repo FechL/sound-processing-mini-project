@@ -1,0 +1,46 @@
+{
+  "strategy": "grouped_by_acquisition_block",
+  "seed": 2026,
+  "train_ids": [
+    "nyala_b01",
+    "mati_b01",
+    "naik_b01",
+    "turun_b01",
+    "nyala_b02",
+    "mati_b02",
+    "naik_b02",
+    "turun_b02",
+    "nyala_b03",
+    "mati_b03",
+    "naik_b03",
+    "turun_b03",
+    "nyala_b04",
+    "mati_b04",
+    "naik_b04",
+    "turun_b04"
+  ],
+  "validation_ids": [
+    "nyala_b05",
+    "mati_b05",
+    "naik_b05",
+    "turun_b05"
+  ],
+  "test_ids": [
+    "nyala_b06",
+    "mati_b06",
+    "naik_b06",
+    "turun_b06"
+  ],
+  "train_groups": [
+    "block_01",
+    "block_02",
+    "block_03",
+    "block_04"
+  ],
+  "validation_groups": [
+    "block_05"
+  ],
+  "test_groups": [
+    "block_06"
+  ]
+}

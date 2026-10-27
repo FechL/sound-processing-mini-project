@@ -1,0 +1,25 @@
+sample_id,label,group_id,subject_id,device_id,distance_tag,sample_rate_hz,duration_s,path,split
+nyala_b01,nyala,block_01,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/nyala_b01.wav,train
+mati_b01,mati,block_01,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/mati_b01.wav,train
+naik_b01,naik,block_01,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/naik_b01.wav,train
+turun_b01,turun,block_01,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/turun_b01.wav,train
+nyala_b02,nyala,block_02,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/nyala_b02.wav,train
+mati_b02,mati,block_02,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/mati_b02.wav,train
+naik_b02,naik,block_02,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/naik_b02.wav,train
+turun_b02,turun,block_02,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/turun_b02.wav,train
+nyala_b03,nyala,block_03,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/nyala_b03.wav,train
+mati_b03,mati,block_03,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/mati_b03.wav,train
+naik_b03,naik,block_03,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/naik_b03.wav,train
+turun_b03,turun,block_03,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/turun_b03.wav,train
+nyala_b04,nyala,block_04,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/nyala_b04.wav,train
+mati_b04,mati,block_04,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/mati_b04.wav,train
+naik_b04,naik,block_04,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/naik_b04.wav,train
+turun_b04,turun,block_04,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/turun_b04.wav,train
+nyala_b05,nyala,block_05,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/nyala_b05.wav,validation
+mati_b05,mati,block_05,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/mati_b05.wav,validation
+naik_b05,naik,block_05,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/naik_b05.wav,validation
+turun_b05,turun,block_05,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/turun_b05.wav,validation
+nyala_b06,nyala,block_06,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/nyala_b06.wav,test
+mati_b06,mati,block_06,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/mati_b06.wav,test
+naik_b06,naik,block_06,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/naik_b06.wav,test
+turun_b06,turun,block_06,personal_user,local_mic,normal,16000,1.2,D:/Kuliah/SEM 7/sound-processing-mini-project/data/raw/mp09_dataset/turun_b06.wav,test

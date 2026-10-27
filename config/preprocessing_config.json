@@ -1,0 +1,28 @@
+{
+  "sampling_rate_hz": 16000,
+  "dc_removal": true,
+  "normalization": {
+    "type": "peak",
+    "target_peak": 0.95
+  },
+  "frame_ms": 25.0,
+  "hop_ms": 10.0,
+  "frame_length_samples": 400,
+  "hop_length_samples": 160,
+  "window": "hamming",
+  "pre_emphasis_alpha": 0.97,
+  "vad": {
+    "method": "frame_rms_adaptive",
+    "relative_factor": 0.25,
+    "threshold": 0.031333340448172514,
+    "margin_frames": 2
+  },
+  "denoise": {
+    "method": "spectral_subtraction",
+    "beta": 0.6,
+    "spectral_floor": 0.25,
+    "noise_fraction": 0.2,
+    "noise_estimate_reliable": true
+  },
+  "source_filter_config": "config/filter_final_config.json"
+}
