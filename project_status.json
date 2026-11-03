@@ -1,10 +1,10 @@
 {
-  "last_completed_mini_project": 10,
-  "next_mini_project": 5,
-  "next_input": "data/raw/nyala_001.wav",
+  "last_completed_mini_project": 16,
+  "next_mini_project": null,
+  "next_input": null,
   "audio_format": "config/audio_format_selected.json",
   "metrics": "results/metrics/mp02_sampling_quantization.json",
-  "status": "ready_for_mp11",
+  "status": "project_complete",
   "spectral_config": "config/spectral_config.json",
   "stft_reference": "features/intermediate/mp03_reference_stft.npz",
   "channel_audio": "data/processed/mp04_channel/nyala_001_channel.wav",
@@ -45,7 +45,13 @@
   "dataset_metadata": "data/metadata/mp09_metadata.csv",
   "completed_mini_projects": [
     9,
-    10
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
   ],
   "mp10": {
     "chosen_candidate": "mi8",
@@ -54,5 +60,71 @@
     "feature_reduction_config": "config/feature_reduction_config.json",
     "final_feature_dataset": "features/dataset/mp10_features_final.npz",
     "metrics": "results/metrics/mp10_feature_reduction_metrics.json"
+  },
+  "mp11": {
+    "chosen_family": "linear_svm",
+    "classifier_config": "config/classifier_config.json",
+    "model_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp11_classical_baseline.joblib",
+    "parameter_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp11_model_parameters.npz",
+    "metrics": "results/metrics/mp11_classifier_metrics.json",
+    "test_used": false
+  },
+  "mp12": {
+    "deep_learning_config": "config/deep_learning_config.json",
+    "model_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp12_tiny_cnn_state.pt",
+    "parameter_file": "models/mp12_tiny_cnn_parameters.npz",
+    "metrics": "results/metrics/mp12_deep_learning_metrics.json",
+    "test_used": false,
+    "quantization_deferred_to_mp15": true
+  },
+  "mp13": {
+    "evaluation_protocol": "config/evaluation_protocol.json",
+    "final_test_metrics": "results/metrics/mp13_final_test_metrics.json",
+    "test_predictions": "results/predictions/mp13_test_predictions.csv",
+    "pretest_hashes": "results/metrics/mp13_pretest_artifact_hashes.json",
+    "posttest_hashes": "results/metrics/mp13_posttest_artifact_hashes.json",
+    "test_opened": true,
+    "post_test_tuning_performed": false,
+    "deployment_candidates": [
+      "models/mp11_classical_baseline.joblib",
+      "models/mp12_tiny_cnn_state.pt"
+    ],
+    "deployment_selection_deferred_to": "MP15"
+  },
+  "mp14": {
+    "realtime_config": "config/realtime_architecture_config.json",
+    "stream_trace": "features/intermediate/mp14_stream_trace.npz",
+    "metrics": "results/metrics/mp14_realtime_metrics.json",
+    "firmware_constants": "firmware/mp14_realtime_constants.h",
+    "timing_figure": "results/figures/mp14_timing_trace.png",
+    "memory_figure": "results/figures/mp14_memory_budget.png",
+    "deployment_candidates": [
+      "models/mp11_classical_baseline.joblib",
+      "models/mp12_tiny_cnn_state.pt"
+    ],
+    "deployment_selection_deferred_to": "MP15"
+  },
+  "mp15": {
+    "deployment_config": "config/deployment_config.json",
+    "deployment_metrics": "results/metrics/mp15_deployment_metrics.json",
+    "deployment_manifest": "deployment/mp15_manifest.json",
+    "selected_model": "classical_svm_int8",
+    "classical_package": "models/mp15_classical_int8.npz",
+    "classical_header": "firmware/mp15_classical_model_int8.h",
+    "tiny_cnn_quantized_host_artifact": "models/mp15_tiny_cnn_int8_torchscript.pt",
+    "post_test_tuning_performed": false,
+    "device_benchmark_deferred_to_mp16": true
+  },
+  "mp16": {
+    "system_config": "config/system_integration_config.json",
+    "acceptance_metrics": "results/metrics/mp16_acceptance_metrics.json",
+    "final_manifest": "deployment/mp16_final_project_manifest.json",
+    "prediction_audit": "results/predictions/mp16_end_to_end_predictions.csv",
+    "selected_model": "classical_svm_int8",
+    "required_acceptance_pass": true,
+    "completion_scope": "reference_replay",
+    "physical_deployment_complete": false,
+    "live_microphone_tested": false,
+    "post_test_tuning_performed": false
   }
 }

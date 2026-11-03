@@ -2,4 +2,7 @@ numpy
 scipy
 matplotlib
 sounddevice
-scikit-learn
+scikit-learn>=1.4
+joblib
+# MP15 uses the eager static quantization API available in these releases.
+torch>=2.6,<2.10

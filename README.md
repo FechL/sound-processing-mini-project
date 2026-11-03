@@ -42,6 +42,116 @@ Mini Project 9 membangun dataset utama 4 kelas perintah suara (`nyala`, `mati`, 
 
 Mini Project 10 melakukan seleksi fitur dan reduksi dimensi dengan kebijakan *hardware-aware* pada data latih (*training-only*). Evaluasi dilakukan terhadap representasi raw 39-D, Mutual Information (k=8, k=12), Recursive Feature Elimination (RFE k=8, k=12), PCA (d=6), dan LDA (d=3) menggunakan GroupKFold cross-validation. Representasi terbaik terpilih (`mi8`, 8 fitur Mutual Information) dibekukan bersama scaler transformasi untuk digunakan pada pemodelan classifier di Mini Project 11.
 
+## Mini Project 11:
+
+Membandingkan KNN, logistic regression, linear SVM, decision tree, Random Forest,
+dan MLP dengan GroupKFold pada acquisition block training. Hyperparameter dipilih
+dari training CV; keluarga baseline dipilih dengan validation. Model joblib,
+parameter NPZ, tiga grafik, dan konfigurasi classifier disimpan tanpa prediksi test.
+
+## Mini Project 12:
+
+Melatih Tiny CNN dua convolution dengan global average pooling pada log-Mel
+96 x 26. Normalisasi dan augmentasi hanya memakai training. Checkpoint dipilih
+dari validation macro-F1, dengan validation loss sebagai tie-break. Arsitektur
+bersama ada di `kws_models.py`; test belum dimuat untuk training/selection.
+
+## Mini Project 13:
+
+Membuka test beku MP9 satu kali untuk baseline klasik dan CNN. Menyimpan accuracy,
+balanced accuracy, macro precision/recall/F1, Wilson 95%, confusion matrix, audit
+prediksi CSV, dan hash SHA-256 sebelum/sesudah evaluasi. Lock eksklusif mencegah
+evaluasi test diam-diam diulang setelah kegagalan parsial. Skrip berada di root,
+konsisten dengan mini project lain. Jangan menghapus lock atau mengulang MP10--12
+untuk menyesuaikan model berdasarkan hasil test.
+
+## Mini Project 14:
+
+Simulasi scheduler memakai audio training, filter MP6 stateful, DMA 160 sampel
+(10 ms), frame 400 sampel, hop 160 sampel, context 96 frame (975 ms), dan inference
+stride 100 ms. Kedua backend diukur. Timing trace, estimasi memory, dan konstanta
+C diekspor. Feature streaming per-frame pada contoh panduan merupakan sanity check
+scheduler; ia belum setara dengan normalisasi/VAD utterance MP9. Akurasi streaming
+kontinu tidak diklaim dari simulasi ini.
+
+## Mini Project 15:
+
+Baseline linear beku diekspor menjadi bobot INT8, accumulator INT32, scale/bias,
+paket NPZ, dan header C dengan fungsi `MP15_predict39`. CNN menjalani static PTQ,
+kalibrasi training-only, dan ekspor TorchScript INT8 untuk host. Agreement sebelum
+dan sesudah kuantisasi, ukuran payload, dan latency host dicatat. Exporter klasik
+mendukung baseline `linear_svm`/`logreg`; model non-linear memerlukan exporter
+tersendiri, tanpa mengganti baseline setelah test dibuka.
+
+Panduan MP15 memakai skor test untuk memilih deployment, sedangkan MP13 melarang
+pemilihan dari test. Implementasi mengikuti aturan MP13: toleransi validation F1
+0,03 dibekukan di MP11, kemudian kandidat dipilih berdasarkan validation beku,
+ukuran payload, dan host p95 latency. Skor test tetap dilaporkan sebagai hasil
+evaluasi, bukan masukan pemilihan. Penyesuaian ini dicatat di deployment config.
+
+## Mini Project 16:
+
+Replay WAV test melalui preprocessing dan ekstraksi ulang yang sama dengan MP9,
+lalu inferensi paket INT8 yang dipilih manifest MP15. Diperiksa kesetaraan fitur,
+agreement prediksi MP13, latency, hasil scheduler MP14, integritas paket, dan
+acceptance report. Kedua backend deployment dapat dipakai. Header konstanta,
+prediction audit, grafik, konfigurasi integrasi, dan manifest final disimpan.
+
+`project_complete` berarti **reference/replay software acceptance** lulus.
+`completion_scope=reference_replay` dan `physical_deployment_complete=false`
+menjelaskan bahwa uji mikrofon, port ESP32, GPIO fisik, RAM/flash/daya serta timing
+perangkat aktual belum diukur. Gate yang gagal menghasilkan
+`mp16_acceptance_failed`, bukan status berhasil.
+
+Demo mikrofon opsional mencatat empat command dan aksi console dengan relay
+ON/OFF serta level yang dibatasi 0--10. Sistem masih closed-set empat kelas;
+belum ada classifier unknown/silence untuk penggunaan mikrofon terus-menerus.
+Rekaman demo dan pemasangan hardware dilakukan pengguna.
+
+## Menjalankan MP11--16
+
+Gunakan Python 3.10 atau lebih baru. Environment `.venv` telah disiapkan untuk
+eksekusi pada komputer ini. Untuk instalasi ulang:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install 'torch>=2.6,<2.10' --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -r requirements.txt
+```
+
+Urutan berikut hanya untuk dataset baru yang belum membuka test, dengan status
+awal `ready_for_mp11`. Skrip memakai root dari lokasi file sehingga dapat
+dijalankan dari direktori lain. `kws_common.py` menjaga split, status, dan hash.
+
+```bash
+python mini_project_11.py
+python mini_project_12.py
+python mini_project_13.py
+python mini_project_14.py
+python mini_project_15.py
+python mini_project_16.py
+```
+
+Replay dapat diulang untuk memeriksa implementasi; ini bukan evaluasi generalisasi
+baru dan tidak mengizinkan retraining. Untuk demo mikrofon setelah replay:
+
+```bash
+.venv/bin/python mini_project_16.py --live
+```
+
+Hasil utama: `results/metrics/mp13_final_test_metrics.json`,
+`results/metrics/mp15_deployment_metrics.json`,
+`results/metrics/mp16_acceptance_metrics.json`, dan
+`deployment/mp16_final_project_manifest.json`. Semua latency/memory proxy host
+dibedakan dari benchmark target. Dataset hanya memiliki empat sampel test;
+skor tinggi tidak cukup untuk membuktikan generalisasi ke suara nyata. MP9
+memiliki mode generator demo; pastikan provenance WAV sebelum mengklaim data
+tersebut sebagai rekaman manusia.
+
+Saat menyinkronkan sumber ke Drive, tambahkan `--exclude '.venv/**'` dan
+`--exclude '__pycache__/**'` agar environment lokal tidak ikut terunggah.
+
 ## Contributor:
 - 235150300111002 MUHAMMAD HILMI ZUHDI
 - 235150300111007 HANIIF ZAAHID NASHRULLAH
