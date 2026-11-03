@@ -1,0 +1,45 @@
+{
+  "selected_model": "classical_svm_int8",
+  "target_profile": "MCU_first",
+  "n_replay_samples": 4,
+  "replay_accuracy": 1.0,
+  "replay_agreement_with_mp13": 1.0,
+  "feature_latency_ms": {
+    "mean": 10.36766825,
+    "p95": 12.111696649999999
+  },
+  "inference_latency_ms": {
+    "mean": 0.0906845,
+    "p95": 0.10108584999999999
+  },
+  "pipeline_latency_ms": {
+    "mean": 10.45835275,
+    "p95": 12.2058518
+  },
+  "pipeline_rtf_p95": 0.010171543166666666,
+  "realtime_stride_ms": 100.0,
+  "mp14_overflow_count": 0,
+  "mp15_payload_bytes": 164,
+  "benchmark_scope": "host_reference_replay",
+  "completion_scope": "reference_replay",
+  "physical_deployment_complete": false,
+  "device_benchmark_performed": false,
+  "max_feature_abs_error_vs_mp09": 0.0,
+  "live_action_backend": "console_simulation",
+  "live_microphone_enabled": false,
+  "live_demo": [],
+  "acceptance_checks": {
+    "serial_gate_ready_for_mp16": true,
+    "selected_model_matches_manifest": true,
+    "post_test_tuning_false": true,
+    "mp15_numeric_agreement_test_ge_095": true,
+    "mp14_overflow_is_0": true,
+    "replay_agreement_not_worse_than_mp15": true,
+    "replay_features_are_finite": true,
+    "replay_feature_equivalence_mp09": true,
+    "p95_pipeline_faster_than_inference_stride": true,
+    "p95_pipeline_faster_than_audio_duration": true
+  },
+  "required_acceptance_pass": true,
+  "scientific_note": "Replay test verifies end-to-end implementation consistency; it is not a new independent generalization estimate."
+}

@@ -1,0 +1,27 @@
+{
+  "sample_rate_hz": 16000,
+  "input_interface": "I2S_or_ADC_to_DMA",
+  "dma_block_samples": 160,
+  "dma_buffer_count": 2,
+  "dma_block_ms": 10.0,
+  "pcm_ring_samples": 400,
+  "feature_hop_samples": 160,
+  "feature_frame_samples": 400,
+  "feature_context_frames": 96,
+  "feature_context_ms": 975.0,
+  "inference_stride_frames": 10,
+  "inference_stride_ms": 100.0,
+  "scheduler": "DMA ISR only signals buffer-ready; DSP/feature/inference run outside ISR",
+  "candidate_models": [
+    "mp11_classical_baseline",
+    "mp12_tiny_cnn"
+  ],
+  "final_model_selection": "DEFERRED_TO_MP15",
+  "overflow_policy": "increment_counter_and_drop_oldest_unprocessed_block",
+  "instrumentation": [
+    "frame_counter",
+    "overflow_counter",
+    "timestamp_us",
+    "stage_latency_us"
+  ]
+}

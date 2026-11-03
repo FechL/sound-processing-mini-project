@@ -1,0 +1,409 @@
+{
+  "n_samples_total": 24,
+  "n_train": 16,
+  "n_validation": 4,
+  "n_test_reserved_untouched": 4,
+  "input_dim": 8,
+  "classes": [
+    "mati",
+    "naik",
+    "nyala",
+    "turun"
+  ],
+  "family_results": {
+    "knn": {
+      "best_params": {
+        "n_neighbors": 1,
+        "weights": "uniform"
+      },
+      "cv_macro_f1_mean": 1.0,
+      "cv_macro_f1_std": 0.0,
+      "validation_macro_f1": 1.0,
+      "validation_accuracy": 1.0,
+      "resource_proxy": {
+        "estimated_ops_per_sample": 384,
+        "parameter_count_proxy": 144,
+        "serialized_bytes": 2607
+      },
+      "all_trials": [
+        {
+          "params": {
+            "n_neighbors": 1,
+            "weights": "uniform"
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "n_neighbors": 3,
+            "weights": "uniform"
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "n_neighbors": 3,
+            "weights": "distance"
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "validation_predictions": [
+        "nyala",
+        "mati",
+        "naik",
+        "turun"
+      ]
+    },
+    "logreg": {
+      "best_params": {
+        "C": 0.1
+      },
+      "cv_macro_f1_mean": 1.0,
+      "cv_macro_f1_std": 0.0,
+      "validation_macro_f1": 1.0,
+      "validation_accuracy": 1.0,
+      "resource_proxy": {
+        "estimated_ops_per_sample": 64,
+        "parameter_count_proxy": 36,
+        "serialized_bytes": 1009
+      },
+      "all_trials": [
+        {
+          "params": {
+            "C": 0.1
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "C": 1.0
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "C": 10.0
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "validation_predictions": [
+        "nyala",
+        "mati",
+        "naik",
+        "turun"
+      ]
+    },
+    "linear_svm": {
+      "best_params": {
+        "C": 0.1
+      },
+      "cv_macro_f1_mean": 1.0,
+      "cv_macro_f1_std": 0.0,
+      "validation_macro_f1": 1.0,
+      "validation_accuracy": 1.0,
+      "resource_proxy": {
+        "estimated_ops_per_sample": 64,
+        "parameter_count_proxy": 36,
+        "serialized_bytes": 909
+      },
+      "all_trials": [
+        {
+          "params": {
+            "C": 0.1
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "C": 1.0
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "C": 10.0
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "validation_predictions": [
+        "nyala",
+        "mati",
+        "naik",
+        "turun"
+      ]
+    },
+    "tree": {
+      "best_params": {
+        "max_depth": 2
+      },
+      "cv_macro_f1_mean": 1.0,
+      "cv_macro_f1_std": 0.0,
+      "validation_macro_f1": 0.6666666666666666,
+      "validation_accuracy": 0.75,
+      "resource_proxy": {
+        "estimated_ops_per_sample": 2,
+        "parameter_count_proxy": 5,
+        "serialized_bytes": 1699
+      },
+      "all_trials": [
+        {
+          "params": {
+            "max_depth": 2
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "max_depth": 3
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "max_depth": 4
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "validation_predictions": [
+        "nyala",
+        "mati",
+        "mati",
+        "turun"
+      ]
+    },
+    "rf": {
+      "best_params": {
+        "n_estimators": 30,
+        "max_depth": 3
+      },
+      "cv_macro_f1_mean": 1.0,
+      "cv_macro_f1_std": 0.0,
+      "validation_macro_f1": 1.0,
+      "validation_accuracy": 1.0,
+      "resource_proxy": {
+        "estimated_ops_per_sample": 84,
+        "parameter_count_proxy": 206,
+        "serialized_bytes": 30085
+      },
+      "all_trials": [
+        {
+          "params": {
+            "n_estimators": 30,
+            "max_depth": 3
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "n_estimators": 50,
+            "max_depth": 4
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "validation_predictions": [
+        "nyala",
+        "mati",
+        "naik",
+        "turun"
+      ]
+    },
+    "mlp": {
+      "best_params": {
+        "hidden_layer_sizes": [
+          8
+        ],
+        "alpha": 0.001
+      },
+      "cv_macro_f1_mean": 1.0,
+      "cv_macro_f1_std": 0.0,
+      "validation_macro_f1": 1.0,
+      "validation_accuracy": 1.0,
+      "resource_proxy": {
+        "estimated_ops_per_sample": 192,
+        "parameter_count_proxy": 108,
+        "serialized_bytes": 8547
+      },
+      "all_trials": [
+        {
+          "params": {
+            "hidden_layer_sizes": [
+              8
+            ],
+            "alpha": 0.001
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "params": {
+            "hidden_layer_sizes": [
+              16
+            ],
+            "alpha": 0.001
+          },
+          "cv_macro_f1_mean": 1.0,
+          "cv_macro_f1_std": 0.0,
+          "fold_macro_f1": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "validation_predictions": [
+        "nyala",
+        "mati",
+        "naik",
+        "turun"
+      ]
+    }
+  },
+  "best_validation_macro_f1": 1.0,
+  "shortlist_within_tolerance": [
+    "knn",
+    "logreg",
+    "linear_svm",
+    "rf",
+    "mlp"
+  ],
+  "chosen_family": "linear_svm",
+  "chosen_validation_macro_f1": 1.0,
+  "chosen_validation_accuracy": 1.0,
+  "validation_confusion_matrix": [
+    [
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "test_used": false
+}

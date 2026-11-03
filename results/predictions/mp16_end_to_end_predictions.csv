@@ -1,0 +1,5 @@
+sample_id,expected,mp13_classical_pred,mp16_int8_pred,correct,agreement_mp13,feature_ms,inference_ms,total_ms,audio_duration_ms,feature_max_abs_error_vs_mp09,score,timestamp_utc
+nyala_b06,nyala,nyala,nyala,True,True,12.445841,0.09267,12.538511,1200.0,0.0,0.04230679059704323,2026-11-03T06:57:34.415253+00:00
+mati_b06,mati,mati,mati,True,True,9.355333,0.081446,9.436779,1200.0,0.0,0.46717601749552495,2026-11-03T06:57:34.425072+00:00
+naik_b06,naik,naik,naik,True,True,10.218212,0.102571,10.320783,1200.0,0.0,0.7470691794730802,2026-11-03T06:57:34.435782+00:00
+turun_b06,turun,turun,turun,True,True,9.451287,0.086051,9.537338,1200.0,0.0,0.7727760944781827,2026-11-03T06:57:34.445699+00:00

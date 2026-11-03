@@ -1,0 +1,5 @@
+sample_id,true_label,classical_prediction,classical_margin_proxy,cnn_prediction,cnn_max_softmax
+nyala_b06,nyala,nyala,0.38321923954649195,nyala,0.3287518322467804
+mati_b06,mati,mati,0.9267614168966909,mati,0.30116209387779236
+naik_b06,naik,naik,1.2118431134952514,naik,0.6410945653915405
+turun_b06,turun,turun,1.0433515956630586,turun,0.4873090982437134

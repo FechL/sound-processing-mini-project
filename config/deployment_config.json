@@ -1,0 +1,18 @@
+{
+  "source_status": "ready_for_mp15",
+  "post_test_tuning_performed": false,
+  "cnn_ptq_calibration_scope": "training_only",
+  "svm_input_quant_calibration_scope": "training_only",
+  "selection_uses_frozen_mp13_metrics": false,
+  "selection_scope": "frozen_validation_then_payload_then_host_latency",
+  "guide_deviation": "MP15 test-based ranking conflicts with MP13; validation scores are used instead.",
+  "selection_policy": "candidate within 0.03 validation macro-F1 of best -> smaller payload -> lower host p95 latency",
+  "selected_deployment_model": "classical_svm_int8",
+  "primary_target_profile": "MCU_first",
+  "fallback_candidate": "tiny_cnn_int8",
+  "realtime_contract": "config/realtime_architecture_config.json",
+  "classical_package": "models/mp15_classical_int8.npz",
+  "classical_c_header": "firmware/mp15_classical_model_int8.h",
+  "tiny_cnn_host_quantized_package": "models/mp15_tiny_cnn_int8_torchscript.pt",
+  "note": "TorchScript INT8 is used for host numerical/latency validation. MP16 ports the selected final model to the actual embedded runtime."
+}

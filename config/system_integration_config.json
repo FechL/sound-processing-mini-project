@@ -1,0 +1,42 @@
+{
+  "project": "four_command_keyword_spotting_embedded",
+  "classes": [
+    "mati",
+    "naik",
+    "nyala",
+    "turun"
+  ],
+  "sample_rate_hz": 16000,
+  "input": "mono_PCM16_or_float_equivalent",
+  "dma_block_samples": 160,
+  "frame_samples": 400,
+  "hop_samples": 160,
+  "inference_stride_frames": 10,
+  "selected_model": "classical_svm_int8",
+  "selected_features": [
+    "mfcc07_mean",
+    "mfcc08_mean",
+    "mfcc11_mean",
+    "centroid_hz_mean",
+    "bandwidth_hz_mean",
+    "rolloff85_hz_mean",
+    "rolloff85_hz_std",
+    "voiced_ratio"
+  ],
+  "decision_map": {
+    "nyala": "LED/relay ON",
+    "mati": "LED/relay OFF",
+    "naik": "increase level",
+    "turun": "decrease level"
+  },
+  "logging_fields": [
+    "timestamp",
+    "predicted_class",
+    "score",
+    "pipeline_latency_ms",
+    "overflow_count"
+  ],
+  "live_python_target": "Raspberry Pi / PC Linux",
+  "esp32_package": "firmware/mp15_classical_model_int8.h",
+  "no_post_test_tuning": true
+}

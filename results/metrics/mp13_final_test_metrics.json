@@ -1,0 +1,166 @@
+{
+  "test_opened": true,
+  "test_opened_once_in_running_project": true,
+  "n_test": 4,
+  "classes": [
+    "mati",
+    "naik",
+    "nyala",
+    "turun"
+  ],
+  "sample_ids": [
+    "nyala_b06",
+    "mati_b06",
+    "naik_b06",
+    "turun_b06"
+  ],
+  "classical": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "accuracy_wilson_95": [
+      0.5100999795960008,
+      1.0
+    ],
+    "per_class": {
+      "mati": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "naik": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "nyala": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "turun": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      }
+    },
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "tiny_cnn": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "accuracy_wilson_95": [
+      0.5100999795960008,
+      1.0
+    ],
+    "per_class": {
+      "mati": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "naik": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "nyala": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "turun": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      }
+    },
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "resource_proxy": {
+    "classical": {
+      "family": "linear_svm",
+      "estimated_ops_per_sample": 64,
+      "parameter_count_proxy": 36,
+      "serialized_bytes": 909,
+      "note": "Classifier-only resource proxy; feature extraction cost is not included."
+    },
+    "tiny_cnn": {
+      "parameter_count": 1340,
+      "float32_parameter_bytes": 5360,
+      "estimated_int8_parameter_bytes": 1340,
+      "estimated_macs_per_inference": 898624,
+      "note": "Architecture proxy; measured latency/RAM/energy are deferred to MP15."
+    }
+  },
+  "post_test_tuning_performed": false,
+  "deployment_selection_from_test_performed": false,
+  "deployment_candidates_forwarded": [
+    "mp11_classical_baseline",
+    "mp12_tiny_cnn"
+  ],
+  "interpretation_warning": "With four test samples, point estimates have very wide uncertainty. Do not claim perfect generalization from a 100% score."
+}

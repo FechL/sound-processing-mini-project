@@ -1,0 +1,26 @@
+{
+  "source_dataset": "features/dataset/mp10_features_final.npz",
+  "feature_representation_frozen_in_mp10": true,
+  "hyperparameter_fit_scope": "training_only_groupkfold",
+  "family_selection_scope": "validation_only_after_family_tuning",
+  "test_used_for_tuning": false,
+  "test_used_for_family_selection": false,
+  "test_predictions_generated": false,
+  "seed": 2026,
+  "validation_f1_tolerance": 0.03,
+  "chosen_family": "linear_svm",
+  "chosen_params": {
+    "C": 0.1
+  },
+  "classes": [
+    "mati",
+    "naik",
+    "nyala",
+    "turun"
+  ],
+  "input_dim": 8,
+  "model_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp11_classical_baseline.joblib",
+  "parameter_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp11_model_parameters.npz",
+  "deployment_selection_scope": "validation_only_then_payload_then_host_latency",
+  "deployment_performance_tolerance": 0.03
+}

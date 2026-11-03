@@ -1,0 +1,31 @@
+{
+  "input_representation": "log_mel",
+  "source_logmel_dir": "features/logmel/mp09",
+  "split_source": "splits/mp09_split.json",
+  "architecture": "TinyKWSNet_2conv_gap",
+  "input_shape_per_sample": [
+    96,
+    26
+  ],
+  "classes": [
+    "mati",
+    "naik",
+    "nyala",
+    "turun"
+  ],
+  "normalization_fit_scope": "training_only",
+  "augmentation_scope": "training_only",
+  "checkpoint_selection_scope": "validation_only",
+  "test_files_loaded": false,
+  "test_predictions_generated": false,
+  "seed": 2026,
+  "batch_size": 8,
+  "learning_rate": 0.001,
+  "max_epochs": 60,
+  "early_stopping_patience": 12,
+  "best_epoch": 60,
+  "model_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp12_tiny_cnn_state.pt",
+  "parameter_file": "models/mp12_tiny_cnn_parameters.npz",
+  "quantization_performed": false,
+  "quantization_deferred_to_mp15": true
+}
