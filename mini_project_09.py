@@ -1,8 +1,11 @@
 from pathlib import Path
+import argparse
 import csv
+from datetime import datetime
 import json
+import shutil
+import tempfile
 import time
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.io import wavfile
@@ -11,7 +14,15 @@ from scipy.fft import dct
 
 ROOT = Path(__file__).resolve().parent
 STATUS = ROOT / 'project_status.json'
-FORCE_RECORD = '--record' in sys.argv
+parser = argparse.ArgumentParser(description='MP9: rekam dataset atau ulangi sampel yang gagal.')
+parser.add_argument('--record', action='store_true', help='Rekam suara asli melalui mikrofon.')
+parser.add_argument('--retry', nargs='+', metavar='SAMPLE_ID',
+                    help='Hanya rekam ulang ID tertentu, contoh: naik_b04 naik_b05 (perlu --record).')
+args = parser.parse_args()
+if args.retry and not args.record:
+    parser.error('--retry harus digunakan bersama --record.')
+FORCE_RECORD = args.record
+RETRY_IDS = set(args.retry or [])
 DEMO_MODE = False if FORCE_RECORD else True
 N_BLOCKS = 6
 DURATION_S = 1.2
@@ -26,7 +37,7 @@ pre_cfg = json.loads((ROOT / 'config/preprocessing_config.json').read_text(encod
 feat_cfg = json.loads((ROOT / 'config/feature_config.json').read_text(encoding='utf-8'))
 filter_npz = np.load(ROOT / 'features/intermediate/mp06_filter_final.npz', allow_pickle=True)
 
-FS = int(project_cfg.get('sampling_rate_hz', 16000))
+FS = int(project_cfg.get('sample_rate_hz', project_cfg.get('sampling_rate_hz', 16000)))
 LABELS = project_cfg.get('labels', ['nyala', 'mati', 'naik', 'turun'])
 B = np.asarray(filter_npz['b'], dtype=float)
 A = np.asarray(filter_npz['a'], dtype=float)
@@ -50,12 +61,54 @@ fig_dir = ROOT / 'results/figures'
 for d in [raw_dir, meta_dir, dataset_dir, logmel_dir, split_dir, metric_dir, fig_dir]:
     d.mkdir(parents=True, exist_ok=True)
 
+if RETRY_IDS:
+    valid_ids = {f'{label}_b{block:02d}' for block in range(1, N_BLOCKS + 1) for label in LABELS}
+    unknown = RETRY_IDS - valid_ids
+    if unknown:
+        parser.error('Sample ID tidak valid: ' + ', '.join(sorted(unknown)))
+    missing = sorted(sid for sid in valid_ids if not (raw_dir / f'{sid}.wav').is_file())
+    if missing:
+        parser.error('Mode --retry memerlukan dataset lengkap. WAV belum ada: ' + ', '.join(missing))
+    existing_split = split_dir / 'mp09_split.json'
+    if existing_split.exists():
+        saved_split = json.loads(existing_split.read_text(encoding='utf-8'))
+        for key, blocks in [('train_ids', range(1, 5)), ('validation_ids', [5]), ('test_ids', [6])]:
+            expected = {f'{label}_b{block:02d}' for block in blocks for label in LABELS}
+            if set(saved_split.get(key, [])) != expected or len(saved_split[key]) != len(expected):
+                parser.error('Split lama tidak sesuai blok MP9; hentikan retry agar identitas split tidak berubah.')
+    archive = ROOT / 'data/raw/archives' / datetime.now().strftime('mp09_retry_%Y%m%d_%H%M%S_%f')
+    archive.mkdir(parents=True)
+    to_backup = [STATUS, dataset_dir / 'mp09_features_39d.npz', meta_dir / 'mp09_metadata.csv',
+                 split_dir / 'mp09_split.json', ROOT / 'config/dataset_config.json',
+                 metric_dir / 'mp09_dataset_metrics.json']
+    for sid in sorted(RETRY_IDS):
+        to_backup.extend([raw_dir / f'{sid}.wav', logmel_dir / f'{sid}.npz'])
+    for path in to_backup:
+        if path.is_file():
+            dest = archive / path.relative_to(ROOT)
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(path, dest)
+    print('Rekam ulang:', ', '.join(sorted(RETRY_IDS)))
+    print('Backup:', archive)
+    # Block downstream stages while recordings and their feature cache are inconsistent.
+    status.update(status='ready_for_mp09', last_completed_mini_project=8,
+                  next_mini_project=9, next_input='data/raw/mp09_dataset')
+    status['completed_mini_projects'] = [n for n in status.get('completed_mini_projects', []) if n < 9]
+    for number in range(9, 17):
+        status.pop(f'mp{number}', None)
+    STATUS.write_text(json.dumps(status, indent=2), encoding='utf-8')
+
 def save_wav(path, y):
     y = np.clip(y, -1, 1)
-    wavfile.write(path, FS, np.round(y * 32767).astype(np.int16))
+    with tempfile.TemporaryDirectory(prefix='.mp09_', dir=path.parent) as folder:
+        temporary = Path(folder) / 'recording.wav'
+        wavfile.write(temporary, FS, np.round(y * 32767).astype(np.int16))
+        temporary.replace(path)
 
 def acquire(label, block):
     path = raw_dir / f'{label}_b{block:02d}.wav'
+    if RETRY_IDS and path.stem not in RETRY_IDS:
+        return path
     if path.exists() and not FORCE_RECORD:
         return path
     if DEMO_MODE:
@@ -68,12 +121,33 @@ def acquire(label, block):
         return path
     else:
         import sounddevice as sd
-        input(f'Block {block} | ucapkan "{label}" lalu tekan ENTER... ')
-        print('Merekam...')
-        y = sd.rec(int(DURATION_S * FS), samplerate=FS, channels=1, dtype='float32')
-        sd.wait()
-        y = y[:, 0]
+        while True:
+            input(f'Block {block} | tekan ENTER, lalu ucapkan "{label}" saat perekaman... ')
+            print(f'Merekam {DURATION_S:.1f} detik. Ucapkan: {label}')
+            y = sd.rec(int(DURATION_S * FS), samplerate=FS, channels=1, dtype='float32')
+            sd.wait()
+            y = y[:, 0]
+            if not RETRY_IDS:
+                break
+            peak = float(np.max(np.abs(y)))
+            clipping = float(np.mean(np.abs(y) >= 0.99))
+            print(f'Peak: {peak:.3f} | indikasi clipping: {clipping:.2%}')
+            if not np.isfinite(y).all() or peak <= 0.02 or clipping > 0:
+                print('Kualitas perlu diperiksa: terlalu pelan, clipping, atau nilai tidak valid.')
+            while True:
+                choice = input('[s] Simpan, [u] Ulangi, [d] Dengarkan: ').strip().lower()
+                if choice == 'd':
+                    sd.play(y, FS)
+                    sd.wait()
+                elif choice in ('s', 'u'):
+                    break
+                else:
+                    print('Pilih s, u, atau d.')
+            if choice == 's' and np.isfinite(y).all():
+                break
+
         save_wav(path, y)
+        print('Disimpan:', path.name)
         return path
 
 def read_float(path):
@@ -202,7 +276,8 @@ for block in range(1, N_BLOCKS + 1):
             'sample_rate_hz': FS,
             'path': p.as_posix()
         })
-    if not DEMO_MODE and block < N_BLOCKS:
+    recorded_this_block = not RETRY_IDS or any(f'{label}_b{block:02d}' in RETRY_IDS for label in LABELS)
+    if not DEMO_MODE and recorded_this_block and block < N_BLOCKS:
         print('Istirahat 5–10 detik / ubah posisi mikrofon sedikit sebelum block berikutnya.')
         time.sleep(2)
 
@@ -259,7 +334,8 @@ split = {
     'validation_groups': sorted(set(groups[val_mask])),
     'test_groups': sorted(set(groups[test_mask]))
 }
-(split_dir / 'mp09_split.json').write_text(json.dumps(split, indent=2), encoding='utf-8')
+if not RETRY_IDS or not (split_dir / 'mp09_split.json').exists():
+    (split_dir / 'mp09_split.json').write_text(json.dumps(split, indent=2), encoding='utf-8')
 
 # 4) Metadata dan dataset matrix
 with (meta_dir / 'mp09_metadata.csv').open('w', newline='', encoding='utf-8') as f:
@@ -334,7 +410,15 @@ plt.close(fig)
 
 # 6) Handoff ke MP10
 curr_status = status.get('status')
-target_status = 'ready_for_mp10' if curr_status in ['ready_for_mp09', 'ready_for_mp10'] else curr_status
+target_status = 'ready_for_mp10' if RETRY_IDS or curr_status in ['ready_for_mp09', 'ready_for_mp10'] else curr_status
+if RETRY_IDS:
+    status['completed_mini_projects'] = [n for n in status.get('completed_mini_projects', []) if n < 10]
+    for number in range(10, 17):
+        status.pop(f'mp{number}', None)
+if target_status == 'ready_for_mp10':
+    status['last_completed_mini_project'] = 9
+    status['next_mini_project'] = 10
+    status['next_input'] = 'features/dataset/mp09_features_39d.npz'
 status.update({
     'status': target_status,
     'mp10_dataset': 'features/dataset/mp09_features_39d.npz',

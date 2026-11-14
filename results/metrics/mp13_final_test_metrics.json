@@ -15,20 +15,20 @@
     "turun_b06"
   ],
   "classical": {
-    "accuracy": 1.0,
-    "balanced_accuracy": 1.0,
-    "macro_precision": 1.0,
-    "macro_recall": 1.0,
-    "macro_f1": 1.0,
+    "accuracy": 0.75,
+    "balanced_accuracy": 0.75,
+    "macro_precision": 0.625,
+    "macro_recall": 0.75,
+    "macro_f1": 0.6666666666666666,
     "accuracy_wilson_95": [
-      0.5100999795960008,
-      1.0
+      0.3006360524426366,
+      0.9544139373553637
     ],
     "per_class": {
       "mati": {
-        "precision": 1.0,
-        "recall": 1.0,
-        "f1": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
         "support": 1
       },
       "naik": {
@@ -38,9 +38,9 @@
         "support": 1
       },
       "nyala": {
-        "precision": 1.0,
+        "precision": 0.5,
         "recall": 1.0,
-        "f1": 1.0,
+        "f1": 0.6666666666666666,
         "support": 1
       },
       "turun": {
@@ -52,9 +52,9 @@
     },
     "confusion_matrix": [
       [
+        0,
+        0,
         1,
-        0,
-        0,
         0
       ],
       [
@@ -78,38 +78,38 @@
     ]
   },
   "tiny_cnn": {
-    "accuracy": 1.0,
-    "balanced_accuracy": 1.0,
-    "macro_precision": 1.0,
-    "macro_recall": 1.0,
-    "macro_f1": 1.0,
+    "accuracy": 0.25,
+    "balanced_accuracy": 0.25,
+    "macro_precision": 0.125,
+    "macro_recall": 0.25,
+    "macro_f1": 0.16666666666666666,
     "accuracy_wilson_95": [
-      0.5100999795960008,
-      1.0
+      0.045586062644636216,
+      0.6993639475573634
     ],
     "per_class": {
       "mati": {
-        "precision": 1.0,
+        "precision": 0.5,
         "recall": 1.0,
-        "f1": 1.0,
+        "f1": 0.6666666666666666,
         "support": 1
       },
       "naik": {
-        "precision": 1.0,
-        "recall": 1.0,
-        "f1": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
         "support": 1
       },
       "nyala": {
-        "precision": 1.0,
-        "recall": 1.0,
-        "f1": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
         "support": 1
       },
       "turun": {
-        "precision": 1.0,
-        "recall": 1.0,
-        "f1": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
         "support": 1
       }
     },
@@ -121,15 +121,9 @@
         0
       ],
       [
-        0,
         1,
         0,
-        0
-      ],
-      [
         0,
-        0,
-        1,
         0
       ],
       [
@@ -137,15 +131,21 @@
         0,
         0,
         1
+      ],
+      [
+        0,
+        0,
+        1,
+        0
       ]
     ]
   },
   "resource_proxy": {
     "classical": {
-      "family": "linear_svm",
+      "family": "logreg",
       "estimated_ops_per_sample": 64,
       "parameter_count_proxy": 36,
-      "serialized_bytes": 909,
+      "serialized_bytes": 1009,
       "note": "Classifier-only resource proxy; feature extraction cost is not included."
     },
     "tiny_cnn": {

@@ -23,7 +23,7 @@
   "learning_rate": 0.001,
   "max_epochs": 60,
   "early_stopping_patience": 12,
-  "best_epoch": 60,
+  "best_epoch": 45,
   "model_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp12_tiny_cnn_state.pt",
   "parameter_file": "models/mp12_tiny_cnn_parameters.npz",
   "quantization_performed": false,

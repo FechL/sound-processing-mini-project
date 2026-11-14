@@ -14,8 +14,8 @@
     "16k8": 49.96564861657611,
     "8k8": 74.94847292486415
   },
-  "quantization_8bit_snr_db": 44.015010833740234,
-  "resample_8k_roundtrip_snr_db": 38.652923583984375,
+  "quantization_8bit_snr_db": 39.1001091003418,
+  "resample_8k_roundtrip_snr_db": 31.85128402709961,
   "selected_format": {
     "sample_rate_hz": 16000,
     "channels": 1,

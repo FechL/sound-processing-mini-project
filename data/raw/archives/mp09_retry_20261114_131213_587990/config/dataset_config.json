@@ -1,0 +1,19 @@
+{
+  "sampling_rate_hz": 16000,
+  "labels": [
+    "nyala",
+    "mati",
+    "naik",
+    "turun"
+  ],
+  "n_blocks": 6,
+  "samples_per_class": 6,
+  "total_samples": 24,
+  "record_duration_s": 1.2,
+  "group_key": "group_id",
+  "split_strategy": "blocks_01_04_train__05_validation__06_test",
+  "seed": 2026,
+  "feature_schema_source": "config/feature_config.json",
+  "feature_dim": 39,
+  "augmentation": "NONE_in_MP09__training_only_later"
+}

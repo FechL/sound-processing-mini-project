@@ -3,13 +3,13 @@
 #include <stdint.h>
 #define MP15_INPUT_DIM 8
 #define MP15_N_CLASSES 4
-static const int32_t MP15_FEATURE_INDEX[8] = {12, 14, 20, 30, 32, 34, 35, 38};
-static const float MP15_FEATURE_MEAN[8] = {-9.721654654e-01f, -1.504928827e+00f, -4.102703333e-01f, 2.446986328e+03f, 2.577746826e+03f, 5.737996582e+03f, 1.223383423e+03f, 9.007698894e-01f};
-static const float MP15_FEATURE_SCALE[8] = {1.496681929e+00f, 7.942447066e-01f, 7.197918296e-01f, 4.124006348e+02f, 1.424010468e+02f, 7.927053833e+02f, 6.442028198e+02f, 7.493252307e-02f};
-static const float MP15_INPUT_Q_SCALE = 1.378382929e-02f;
-static const int8_t MP15_WEIGHT_Q[32] = {-21, -58, 127, 12, 15, 46, -44, -16, -55, -1, -127, -6, -62, -101, 108, 36, 106, 83, 18, -127, 12, 20, -52, 58, -24, 9, -107, 127, 24, 3, 22, -75};
-static const float MP15_WEIGHT_SCALE[4] = {4.365776666e-03f, 2.552564722e-03f, 2.822605893e-03f, 2.432417125e-03f};
-static const float MP15_BIAS[4] = {-3.809603155e-01f, -3.947961330e-01f, -3.809550405e-01f, -3.952060938e-01f};
+static const int32_t MP15_FEATURE_INDEX[8] = {6, 7, 9, 11, 15, 17, 22, 25};
+static const float MP15_FEATURE_MEAN[8] = {-1.332483292e+00f, 2.637038946e+00f, 1.916357040e+00f, 1.457484484e+00f, 1.268711805e+00f, 1.043985009e+00f, 1.516993642e-01f, 1.287757635e+00f};
+static const float MP15_FEATURE_SCALE[8] = {1.295149922e+00f, 1.192673564e+00f, 3.927235007e-01f, 2.410963625e-01f, 3.010905385e-01f, 2.543196976e-01f, 1.027281284e+00f, 2.789426148e-01f};
+static const float MP15_INPUT_Q_SCALE = 1.976096816e-02f;
+static const int8_t MP15_WEIGHT_Q[32] = {78, 127, 76, -8, 127, -64, -16, 58, 62, 4, -127, 69, -68, 48, -84, -41, -115, -45, 64, -102, -70, 127, -56, 76, -32, -82, -13, 29, -4, -80, 127, -78};
+static const float MP15_WEIGHT_SCALE[4] = {2.206268720e-03f, 2.020766959e-03f, 1.900662435e-03f, 2.458358882e-03f};
+static const float MP15_BIAS[4] = {-9.847525507e-02f, 9.477028251e-02f, 2.642489783e-02f, -2.271992341e-02f};
 // class 0: mati
 // class 1: naik
 // class 2: nyala

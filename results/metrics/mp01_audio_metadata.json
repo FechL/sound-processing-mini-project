@@ -5,8 +5,8 @@
   "bit_depth": 16,
   "duration_s": 2.0,
   "num_samples": 32000,
-  "peak_normalized": 1.0438737869262695,
-  "rms_normalized": 0.356140673160553,
-  "clipping_ratio": 0.08990625,
+  "peak_normalized": 1.016548991203308,
+  "rms_normalized": 0.2222767323255539,
+  "clipping_ratio": 0.0181875,
   "quality_check": "CHECK"
 }

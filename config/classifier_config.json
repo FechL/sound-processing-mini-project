@@ -8,7 +8,7 @@
   "test_predictions_generated": false,
   "seed": 2026,
   "validation_f1_tolerance": 0.03,
-  "chosen_family": "linear_svm",
+  "chosen_family": "logreg",
   "chosen_params": {
     "C": 0.1
   },

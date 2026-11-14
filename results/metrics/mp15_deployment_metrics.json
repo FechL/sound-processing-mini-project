@@ -1,54 +1,54 @@
 {
   "frozen_test_macro_f1": {
-    "classical": 1.0,
-    "tiny_cnn": 1.0
+    "classical": 0.6666666666666666,
+    "tiny_cnn": 0.16666666666666666
   },
   "svm_int8": {
     "agreement_all_24_vs_float": 1.0,
     "agreement_test_vs_float": 1.0,
-    "input_quant_scale": 0.013783829286694527,
+    "input_quant_scale": 0.019760968163609505,
     "weight_scales": [
-      0.004365776665508747,
-      0.0025525647215545177,
-      0.0028226058930158615,
-      0.0024324171245098114
+      0.002206268720328808,
+      0.002020766958594322,
+      0.0019006624352186918,
+      0.002458358881995082
     ],
     "payload_bytes_estimate": 164,
     "host_reference_latency": {
-      "mean_ms": 0.029345529999999998,
-      "p95_ms": 0.03467510000000001,
-      "min_ms": 0.016943
+      "mean_ms": 0.01743241,
+      "p95_ms": 0.01842905,
+      "min_ms": 0.016621
     },
     "float_host_reference_latency": {
-      "mean_ms": 0.27415000333333334,
-      "p95_ms": 0.2978677,
-      "min_ms": 0.253177
+      "mean_ms": 0.1947229,
+      "p95_ms": 0.22996360000000002,
+      "min_ms": 0.177964
     }
   },
   "tiny_cnn_int8": {
     "calibration_scope": "training_only",
     "quantized_engine": "fbgemm",
-    "agreement_all_24_vs_float": 1.0,
+    "agreement_all_24_vs_float": 0.9583333333333334,
     "agreement_test_vs_float": 1.0,
     "weight_bytes_estimate": 1340,
     "torchscript_file_bytes": 26102,
     "host_reference_latency": {
-      "mean_ms": 0.7008424300000001,
-      "p95_ms": 0.9708711,
-      "min_ms": 0.599372
+      "mean_ms": 0.6411411300000001,
+      "p95_ms": 0.6898441,
+      "min_ms": 0.605467
     },
     "float_host_reference_latency": {
-      "mean_ms": 0.49244119999999997,
-      "p95_ms": 0.6697727,
-      "min_ms": 0.395179
+      "mean_ms": 0.4016870800000001,
+      "p95_ms": 0.43799,
+      "min_ms": 0.382778
     }
   },
   "selection": {
     "performance_tolerance": 0.03,
-    "selected_model": "classical_svm_int8",
+    "selected_model": "classical_logreg_int8",
     "validation_macro_f1": {
-      "classical": 1.0,
-      "tiny_cnn": 1.0
+      "classical": 0.6666666666666666,
+      "tiny_cnn": 0.375
     },
     "scope": "validation_only_then_payload_then_host_latency",
     "reason": "Validation within tolerance; smallest payload, then lower host p95 latency."
@@ -58,23 +58,23 @@
   "classical_int8": {
     "agreement_all_24_vs_float": 1.0,
     "agreement_test_vs_float": 1.0,
-    "input_quant_scale": 0.013783829286694527,
+    "input_quant_scale": 0.019760968163609505,
     "weight_scales": [
-      0.004365776665508747,
-      0.0025525647215545177,
-      0.0028226058930158615,
-      0.0024324171245098114
+      0.002206268720328808,
+      0.002020766958594322,
+      0.0019006624352186918,
+      0.002458358881995082
     ],
     "payload_bytes_estimate": 164,
     "host_reference_latency": {
-      "mean_ms": 0.029345529999999998,
-      "p95_ms": 0.03467510000000001,
-      "min_ms": 0.016943
+      "mean_ms": 0.01743241,
+      "p95_ms": 0.01842905,
+      "min_ms": 0.016621
     },
     "float_host_reference_latency": {
-      "mean_ms": 0.27415000333333334,
-      "p95_ms": 0.2978677,
-      "min_ms": 0.253177
+      "mean_ms": 0.1947229,
+      "p95_ms": 0.22996360000000002,
+      "min_ms": 0.177964
     }
   },
   "benchmark_scope": "host_reference",
