@@ -1,5 +1,25 @@
 # Sound Processing Mini Project
 
+## MP9--16 Aktif
+
+MP9--16 di root sekarang merupakan salinan byte-identik dari
+`experiments/max9814_v2/`: dataset MAX9814, representasi `rfe8`, dan model
+`classical_svm_int8`. Folder eksperimen asli tetap tersedia.
+MP1--8, panduan, dan dependensi beku tidak diubah.
+
+Versi root sebelumnya, termasuk log serial, hasil gagal/berhasil, lock test,
+audit hash, firmware, dan cache build, diarsipkan di
+`archive/mp09_mp16_before_max9814_v2_20261115T180011_739291Z/original_root/`.
+`migration_manifest.json` pada folder arsip mencatat SHA-256 sebelum pemindahan
+dan sumber salinan. Arsip juga menyimpan salinan konteks MP1--8 dan README lama.
+
+Jalankan tool MP9--16 dari root seperti biasa. Jangan mengulang training atau
+menghapus lock MP13: artefak evaluasi tetap beku. Path absolut historis pada
+laporan dipertahankan sebagai provenance, bukan ditulis ulang menjadi hasil baru.
+Demo hardware yang PASS memakai paket `8638c45471bfca37`; firmware terbaru
+`e8e75fb70954df46` belum memiliki demo empat perintah lengkap yang tersimpan.
+Hasil replay, hasil perangkat, dan nilai daya yang belum diukur tetap dibedakan.
+
 Project ini mengembangkan pipeline pengolahan audio untuk sistem **embedded keyword spotting**. Sistem dirancang untuk mengenali kata perintah `nyala`, `mati`, `naik`, dan `turun` melalui proses perekaman, validasi kualitas audio, resampling, serta kuantisasi.
 
 ## Mini Project 1:
@@ -40,7 +60,7 @@ Mini Project 9 membangun dataset utama 4 kelas perintah suara (`nyala`, `mati`, 
 
 ## Mini Project 10:
 
-Mini Project 10 melakukan seleksi fitur dan reduksi dimensi dengan kebijakan *hardware-aware* pada data latih (*training-only*). Evaluasi dilakukan terhadap representasi raw 39-D, Mutual Information (k=8, k=12), Recursive Feature Elimination (RFE k=8, k=12), PCA (d=6), dan LDA (d=3) menggunakan GroupKFold cross-validation. Representasi terbaik terpilih (`mi8`, 8 fitur Mutual Information) dibekukan bersama scaler transformasi untuk digunakan pada pemodelan classifier di Mini Project 11.
+Mini Project 10 melakukan seleksi fitur dan reduksi dimensi dengan kebijakan *hardware-aware* pada data latih (*training-only*). Evaluasi dilakukan terhadap representasi raw 39-D, Mutual Information (k=8, k=12), Recursive Feature Elimination (RFE k=8, k=12), PCA (d=6), dan LDA (d=3) menggunakan GroupKFold cross-validation. Representasi terbaik terpilih (`rfe8`, 8 fitur RFE) dibekukan bersama scaler transformasi untuk digunakan pada pemodelan classifier di Mini Project 11.
 
 ## Mini Project 11:
 
@@ -151,6 +171,95 @@ tersebut sebagai rekaman manusia.
 
 Saat menyinkronkan sumber ke Drive, tambahkan `--exclude '.venv/**'` dan
 `--exclude '__pycache__/**'` agar environment lokal tidak ikut terunggah.
+
+## ESP32-WROOM/DevKit + MAX9814 + LED
+
+Implementasi standalone tersedia di [`firmware/esp32`](firmware/esp32/README.md).
+MAX9814 memakai GPIO35 (ADC1 channel 7). LED indikator eksternal memakai GPIO25:
+GPIO25 -> resistor 330 ohm -> anode LED; cathode -> GND.
+LED bawaan GPIO2 dipakai sebagai indikator siap menerima perintah.
+Matikan daya saat merangkai; lihat README firmware untuk panduan lengkap.
+`nyala/mati` mengatur ON/OFF; `naik/turun` mengatur level kecerahan 1--5,
+dengan default 3. `turun` berhenti di level 1; gunakan `mati` untuk padam.
+Capture ADC/DMA, buffering, frontend dan model INT8 dijalankan di ESP32.
+Komputer dipakai untuk upload dan pengumpulan log pengujian.
+
+Ekspor memakai model linear terbaru MP15, termasuk logistic regression INT8
+jika itu kandidat yang dipilih. Bobot, scaler, urutan kelas dan fitur tidak
+diubah. `tools/check_mp16_esp32.py` membandingkan frontend C++ dengan artefak MP9;
+`tools/collect_mp16_esp32.py --demo` mengumpulkan bukti pengujian perangkat nyata.
+Panduan wiring, build, upload dan demo ada pada README firmware. Build/host check
+tidak menandai hardware acceptance selesai; hasil mikrofon/LED tetap harus diuji.
+
+Saat sync ke Drive, kecualikan juga `--exclude '.pio/**'` agar cache build tidak ikut.
+
+### Artefak dan batas klaim MP16
+
+`mini_project_16.py` menghasilkan sembilan artefak wajib modul: konfigurasi
+integrasi, header proyek, acceptance metrics, audit prediksi, final manifest,
+tiga grafik, serta status proyek. Jalankan ulang replay setelah handoff MP15
+berubah, lalu periksa konsistensinya:
+
+```bash
+.venv/bin/python mini_project_16.py
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+Panduan menggunakan SVM INT8 sebagai jalur contoh. Paket aktif sekarang memakai
+`classical_svm_int8` dari eksperimen MAX9814 yang dipilih MP15.
+Replay PASS / `project_complete` hanya berlaku untuk `reference_replay`;
+`physical_deployment_complete` tetap false sampai ada bukti perangkat aktual.
+Log collector di `results/device/` disimpan terpisah dan tidak digantikan oleh
+angka host. Pengamatan LED dan benchmark perangkat dilampirkan pada laporan
+akhir; hasil build atau log kosong tidak membuktikan deployment fisik lulus.
+
+## Dataset MP9 baru dari MAX9814
+
+Tutup semua serial monitor, collector MP16, dan tes live. Upload firmware
+streaming mikrofon (bukan firmware classifier MP16):
+
+```bash
+~/.platformio/penv/bin/pio run -d firmware/mic_test -t upload --upload-port /dev/ttyUSB0
+.venv/bin/python mini_project_09.py --record --new-dataset max9814_v3 --port /dev/ttyUSB0
+```
+
+Mode ini membuat proyek eksperimen mandiri di `experiments/max9814_v3/`.
+Dataset, status, hasil uji dan model proyek lama tidak ditimpa. Sesi baru hanya
+mewarisi kode dan konfigurasi/artefak upstream MP1--8; model, split dan lock
+MP13 lama tidak disalin. Nama eksperimen harus baru; tidak boleh berupa path.
+Proses meminta 24 rekaman (enam blok, empat kata), masing-masing 1,2 detik.
+Setelah menekan ENTER, segera ucapkan kata yang diminta. Pilih `s` untuk simpan,
+`u` untuk ulangi, atau `d` untuk mendengarkan (playback opsional perlu sounddevice
+dan headphone; masalah Conda/PortAudio tidak menghalangi rekaman serial).
+
+Audio ADC 32 kHz dikurangi bias DC dengan alpha 0,0004, difilter FIR 63 tap
+7200 Hz dan diturunkan ke mono PCM16 16 kHz, mengikuti acquisition MP16.
+Reader serial tetap aktif saat menunggu ENTER. WAV, fitur 39D, log-Mel dan
+split baru disimpan dalam eksperimen. Port serial yang gagal/terputus tidak
+menghasilkan WAV pengganti palsu. Suara harus diperiksa kualitasnya sebelum
+disimpan; dataset baru tidak otomatis memperbaiki wiring atau noise mikrofon.
+
+Jika perekaman terhenti sebelum MP9 selesai, lanjutkan WAV yang belum ada:
+
+```bash
+.venv/bin/python mini_project_09.py --record --dataset max9814_v3 --resume --port /dev/ttyUSB0
+```
+
+Setelah status eksperimen `ready_for_mp10`, gunakan interpreter venv yang sama
+tetapi jalankan skrip dari eksperimen tersebut, bukan skrip proyek lama:
+
+```bash
+.venv/bin/python experiments/max9814_v3/mini_project_10.py
+.venv/bin/python experiments/max9814_v3/mini_project_11.py
+```
+
+Lanjutkan MP12--16 di eksperimen yang sama sesuai gate serial. Hasil lama
+tidak boleh dipakai sebagai hasil model baru. Setelah MP13 membuka test,
+jangan merekam ulang dataset eksperimen itu untuk memperbaiki skor; buat
+eksperimen baru. Untuk memperbaiki sampel sebelum evaluasi, gunakan
+`--record --dataset max9814_v3 --retry naik_b04 --port /dev/ttyUSB0`.
+Jalankan perintah ini dari root proyek induk. Tidak perlu mengaktifkan Conda
+audio atau mengubah `project_status.json` lama secara manual.
 
 ## Contributor:
 - 235150300111002 MUHAMMAD HILMI ZUHDI

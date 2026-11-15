@@ -1,0 +1,5 @@
+host_timestamp_utc,timestamp_ms,expected_label,predicted_class,score,pipeline_latency_ms,overflow_count,led_on,led_level
+2026-11-15T13:27:51.590425+00:00,11484,nyala,nyala,1.251437,39.721,0,True,5
+2026-11-15T13:28:00.282346+00:00,20176,naik,naik,0.83329,62.594,0,True,6
+2026-11-15T13:28:07.001322+00:00,26895,turun,turun,1.275131,27.744,0,True,5
+2026-11-15T13:28:14.170608+00:00,34065,mati,mati,0.262076,40.242,0,False,5

@@ -1,0 +1,27 @@
+{
+  "name": "MP13 final frozen-test comparison",
+  "test_open_policy": "open_once_after_all_models_are_frozen",
+  "test_ids": [
+    "nyala_b06",
+    "mati_b06",
+    "naik_b06",
+    "turun_b06"
+  ],
+  "n_test": 4,
+  "primary_metric": "macro_f1",
+  "secondary_metrics": [
+    "accuracy",
+    "balanced_accuracy",
+    "macro_precision",
+    "macro_recall"
+  ],
+  "confidence_interval": "Wilson 95% interval for accuracy",
+  "post_test_tuning_allowed": false,
+  "deployment_model_selection_from_test_allowed": false,
+  "deployment_candidates_forwarded": [
+    "mp11_classical_baseline",
+    "mp12_tiny_cnn"
+  ],
+  "device_based_selection_deferred_to": "MP15",
+  "warning": "Test set is very small; metrics are demonstrative and statistically uncertain."
+}

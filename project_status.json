@@ -1,10 +1,10 @@
 {
-  "last_completed_mini_project": 15,
-  "next_mini_project": 16,
-  "next_input": "deployment/mp15_manifest.json",
+  "last_completed_mini_project": 16,
+  "next_mini_project": null,
+  "next_input": null,
   "audio_format": "config/audio_format_selected.json",
   "metrics": "results/metrics/mp02_sampling_quantization.json",
-  "status": "ready_for_mp16",
+  "status": "project_complete",
   "spectral_config": "config/spectral_config.json",
   "stft_reference": "features/intermediate/mp03_reference_stft.npz",
   "channel_audio": "data/processed/mp04_channel/nyala_001_channel.wav",
@@ -39,19 +39,29 @@
   "mp09_input_feature_config": "config/feature_config.json",
   "mp09_reference_feature_vector": "features/intermediate/mp08_sample_feature_vector.npz",
   "mp09_reference_frame_features": "features/intermediate/mp08_frame_features.npz",
-  "mp10_dataset": "features/dataset/mp09_features_39d.npz",
-  "mp10_split": "splits/mp09_split.json",
   "dataset_config": "config/dataset_config.json",
   "dataset_metadata": "data/metadata/mp09_metadata.csv",
   "completed_mini_projects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
     9,
     10,
     11,
     12,
     13,
     14,
-    15
+    15,
+    16
   ],
+  "experiment_source": "/home/aliy/Coding/Myrepos/sound-processing-mini-project",
+  "mp10_dataset": "features/dataset/mp09_features_39d.npz",
+  "mp10_split": "splits/mp09_split.json",
   "mp10": {
     "chosen_candidate": "rfe8",
     "final_method": "recursive_feature_elimination",
@@ -61,16 +71,16 @@
     "metrics": "results/metrics/mp10_feature_reduction_metrics.json"
   },
   "mp11": {
-    "chosen_family": "logreg",
+    "chosen_family": "linear_svm",
     "classifier_config": "config/classifier_config.json",
-    "model_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp11_classical_baseline.joblib",
-    "parameter_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp11_model_parameters.npz",
+    "model_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/experiments/max9814_v2/models/mp11_classical_baseline.joblib",
+    "parameter_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/experiments/max9814_v2/models/mp11_model_parameters.npz",
     "metrics": "results/metrics/mp11_classifier_metrics.json",
     "test_used": false
   },
   "mp12": {
     "deep_learning_config": "config/deep_learning_config.json",
-    "model_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/models/mp12_tiny_cnn_state.pt",
+    "model_file": "/home/aliy/Coding/Myrepos/sound-processing-mini-project/experiments/max9814_v2/models/mp12_tiny_cnn_state.pt",
     "parameter_file": "models/mp12_tiny_cnn_parameters.npz",
     "metrics": "results/metrics/mp12_deep_learning_metrics.json",
     "test_used": false,
@@ -107,11 +117,32 @@
     "deployment_config": "config/deployment_config.json",
     "deployment_metrics": "results/metrics/mp15_deployment_metrics.json",
     "deployment_manifest": "deployment/mp15_manifest.json",
-    "selected_model": "classical_logreg_int8",
+    "selected_model": "classical_svm_int8",
     "classical_package": "models/mp15_classical_int8.npz",
     "classical_header": "firmware/mp15_classical_model_int8.h",
     "tiny_cnn_quantized_host_artifact": "models/mp15_tiny_cnn_int8_torchscript.pt",
     "post_test_tuning_performed": false,
     "device_benchmark_deferred_to_mp16": true
+  },
+  "mp16": {
+    "system_config": "config/system_integration_config.json",
+    "acceptance_metrics": "results/metrics/mp16_acceptance_metrics.json",
+    "final_manifest": "deployment/mp16_final_project_manifest.json",
+    "prediction_audit": "results/predictions/mp16_end_to_end_predictions.csv",
+    "selected_model": "classical_svm_int8",
+    "required_acceptance_pass": true,
+    "completion_scope": "reference_replay",
+    "physical_deployment_complete": false,
+    "live_microphone_tested": true,
+    "post_test_tuning_performed": false
+  },
+  "status_restoration": {
+    "basis": "Existing MP09-16 artifacts copied from experiments/max9814_v2; no new evaluation performed.",
+    "completion_scope": "reference_replay",
+    "current_package_integrity_verified": false,
+    "pending_integrity_issues": [
+      "config/preprocessing_config.json changed after MP02-08 rerun; frozen manifests have not been rewritten."
+    ],
+    "latest_firmware_hardware_acceptance_verified": false
   }
 }

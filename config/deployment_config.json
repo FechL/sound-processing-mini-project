@@ -7,7 +7,7 @@
   "selection_scope": "frozen_validation_then_payload_then_host_latency",
   "guide_deviation": "MP15 test-based ranking conflicts with MP13; validation scores are used instead.",
   "selection_policy": "candidate within 0.03 validation macro-F1 of best -> smaller payload -> lower host p95 latency",
-  "selected_deployment_model": "classical_logreg_int8",
+  "selected_deployment_model": "classical_svm_int8",
   "primary_target_profile": "MCU_first",
   "fallback_candidate": "tiny_cnn_int8",
   "realtime_contract": "config/realtime_architecture_config.json",

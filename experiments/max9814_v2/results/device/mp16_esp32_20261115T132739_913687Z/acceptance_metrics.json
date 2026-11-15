@@ -1,0 +1,48 @@
+{
+  "scope": "esp32_wroom_live_hardware",
+  "package_id": "8638c45471bfca37",
+  "selected_model": "classical_svm_int8",
+  "device_benchmark_performed": true,
+  "live_microphone_tested": true,
+  "demo_requested": true,
+  "n_windows": 353,
+  "n_events": 4,
+  "event_accuracy": 1.0,
+  "correctly_detected_commands": [
+    "mati",
+    "naik",
+    "nyala",
+    "turun"
+  ],
+  "p95_pipeline_latency_ms": 71.576,
+  "inference_stride_ms": 100.0,
+  "max_overflow_count": 0,
+  "max_adc_errors": 0,
+  "max_missed_strides": 0,
+  "minimum_free_heap_bytes": 129160,
+  "firmware_flash_bytes": 311280,
+  "power_mw": null,
+  "detection_diagnostics": {
+    "calibration_required": true,
+    "last_noise_rms": 0.03771,
+    "last_speech_on_rms": 0.11313,
+    "last_speech_off_rms": 0.05656,
+    "n_speech_active_windows": 85
+  },
+  "acceptance_checks": {
+    "matching_firmware_package": true,
+    "device_logs_present": true,
+    "no_device_fatal": true,
+    "no_adc_overflow": true,
+    "no_adc_errors": true,
+    "no_missed_inference_strides": true,
+    "p95_faster_than_stride": true,
+    "adc_rate_within_2_percent": true,
+    "four_labelled_commands_detected": true,
+    "noise_calibration_complete": true
+  },
+  "required_hardware_acceptance_pass": true,
+  "note": "Event accuracy is a live demonstration result, not a replacement for frozen MP13 test metrics. Measure power separately.",
+  "serial_log": "results/device/mp16_esp32_20261115T132739_913687Z/serial.jsonl",
+  "created_at_utc": "2026-11-15T13:28:17.934200+00:00"
+}

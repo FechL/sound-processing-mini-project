@@ -1,0 +1,50 @@
+{
+  "package_id": "e8e75fb70954df46",
+  "selected_model": "classical_svm_int8",
+  "classes": [
+    "mati",
+    "naik",
+    "nyala",
+    "turun"
+  ],
+  "serial_baud": 460800,
+  "input_sha256": {
+    "config/project_config.json": "6aa6c41e91c4e086d1046a84f0a7a9e1ac6fec66c08f03a62160eb91f79b2594",
+    "config/filter_final_config.json": "57523cec5d0bb940dd73b9a73668b31e1898b5e898eaa72558b128ed0b401d3a",
+    "config/preprocessing_config.json": "6bad1b32f219297de0f53e6c166b0f7eb2919d55733855a8f2ca5817b43734da",
+    "config/feature_config.json": "ccfcf94bb7a7046e565e67ee60f70f5bc5e870e6d7746fdec81698100240ec66",
+    "config/realtime_architecture_config.json": "9b64e730048a000b246be1a3ca75c838f094c4d51641f6f5a377f4e97bc7b675",
+    "config/deployment_config.json": "737699cc8482f889ef6fd44729466359520b2dcb072bf1a5ae325b3a70295040",
+    "firmware/mp14_realtime_constants.h": "04b65a6061476b962fccfe12e8a094e6abd9ac195d66e7a9919c8c0ba5c0f197",
+    "firmware/mp15_classical_model_int8.h": "3a9f07820c1b3031685b54c46b9202ae1ca717038fedb254f077eb22896f1695",
+    "models/mp15_classical_int8.npz": "9c5dfe24b853921a47ff9880dee13ee9ebf4ec5d8e77802b48ce6e019132e7af",
+    "models/mp15_tiny_cnn_int8_torchscript.pt": "4c18455ee7e44b65e20db1e49cf44a0f6d3c5bfd392db827fc5bd0ea765f2695",
+    "models/mp12_tiny_cnn_state.pt": "ebe43445fe7f7e86b8aae5ffbff07db48eac38330f00127df34ddebcada1ec8d",
+    "config/deep_learning_config.json": "39897c6c21b4ff80ccb437b3a8b6b270d86f3962a7e3267e55774c9ef2bbfc3f",
+    "config/feature_reduction_config.json": "1625dd9da763ab4b7f41f5cb6a94e62f7033ed5c1a06ac8539c401ac1a039be7",
+    "features/intermediate/mp06_filter_final.npz": "e68f9e66d0f49e80d3ce0586b17052f499078375239b9e034cdeaaf00501b311",
+    "mini_project_16.py": "d696141e932804a195a57c06242f9e91e0838ded726789dd44f08e596eae3bae",
+    "kws_common.py": "1e3c416919b0a27a8ed621169298aa99aa92819626efe036e8b0cf9ca0067643",
+    "kws_models.py": "645e1f23ae6fd7c23a128ac94d3f0991fbb09b013087452e19824668c4181a4e",
+    "requirements.txt": "aa24de0db8b401f4c66446c309bebfee72dd48dfe22fa78c79dee3c0bb72ea25",
+    "config/dataset_config.json": "e1a70854a077b7977d3aad90d144d43f7325b6dbfd72945268bf559e0d8a3d5b",
+    "firmware/esp32/src/main.cpp": "619fc7537e434d0f1c2e51b5776142d5eb982bda6b18f32673ff11970c097eb3",
+    "firmware/esp32/src/kws_frontend.cpp": "526e0db8db93df23c6da4890c98ae7c873d3cd57b11a32c11c8add2a491197ee",
+    "firmware/esp32/include/kws_frontend.h": "eb535e299870321df7c7f2db5cf3dbaf9722fb7e1ca708a597c4258af0cc7674",
+    "firmware/esp32/include/board_config.h": "94126c9351a0d51c35f3e411415f53f7a2b59b8bf9f134db6e747f1a341f23aa",
+    "firmware/esp32/include/noise_gate.h": "d11e06f5c17a356aec040794ec6744143e76bcb71ca8797b38ad7798c20ba901",
+    "firmware/esp32/platformio.ini": "7ac439674f79629281952e9a7eb1fb9f251226cca6b7d824afec48c1cd44e4ea",
+    "firmware/esp32/verify_package.py": "a43b44871dda439236255ca106e1a7aad4003f7722b3febe57958e466a7b8bc2"
+  },
+  "sample_rate_hz": 16000,
+  "adc_sample_rate_hz": 32000,
+  "utterance_samples": 19200,
+  "inference_stride_samples": 1600,
+  "feature_scope": "full_39_except_unused_pitch_in_live_mode",
+  "physical_deployment_complete": false,
+  "generated_sha256": {
+    "generated_frontend.h": "0a11dd89c26b45743ab130240148bbbde17d52851705651f4acd2c0475abe71f",
+    "adc_decimator.h": "6467adebbb7f8aff65c3b7b6e45c394dbd6632593776aad355a4e1d0dd1fbe80",
+    "mp15_model.h": "3a9f07820c1b3031685b54c46b9202ae1ca717038fedb254f077eb22896f1695"
+  }
+}

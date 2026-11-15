@@ -1,0 +1,7 @@
+{
+  "sample_rate_hz": 16000,
+  "channels": 1,
+  "bit_depth": 16,
+  "reference_file": "data/raw/nyala_001.wav",
+  "selected_by_mini_project": 2
+}

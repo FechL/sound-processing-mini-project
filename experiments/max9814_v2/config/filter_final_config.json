@@ -1,0 +1,11 @@
+{
+  "selected_filter": "iir_ellip_hp",
+  "sample_rate_hz": 16000,
+  "b_length": 5,
+  "a_length": 5,
+  "input_audio": "data/processed/mp05_filter/nyala_001_channel_hum.wav",
+  "output_audio": "data/processed/mp06_design/nyala_001_filter_final.wav",
+  "coefficients": "features/intermediate/mp06_filter_final.npz",
+  "firmware_header": "firmware/mp06_filter_coefficients.h",
+  "test_vector": "features/intermediate/mp06_filter_test_vector.npz"
+}

@@ -1,12 +1,12 @@
 {
   "input_duration_s": 2.3499375,
-  "output_duration_s": 1.555,
-  "input_rms": 0.09376443329965177,
-  "output_rms": 0.11520606039917726,
-  "vad_threshold": 0.04371989001102753,
-  "active_ratio": 0.6609442060085837,
+  "output_duration_s": 0.615,
+  "input_rms": 0.09030145288560427,
+  "output_rms": 0.17543046141757707,
+  "vad_threshold": 0.044208070023353044,
+  "active_ratio": 0.2575107296137339,
   "n_input_frames": 233,
-  "n_output_frames": 154,
-  "noise_floor_change_db_proxy": -1.7533182223746828,
+  "n_output_frames": 60,
+  "noise_floor_change_db_proxy": -5.542036228507284,
   "output_clipping_samples": 0
 }

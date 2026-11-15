@@ -14,14 +14,14 @@
   "inference_stride_frames": 10,
   "selected_model": "classical_svm_int8",
   "selected_features": [
-    "mfcc07_mean",
-    "mfcc08_mean",
-    "mfcc11_mean",
-    "centroid_hz_mean",
-    "bandwidth_hz_mean",
-    "rolloff85_hz_mean",
-    "rolloff85_hz_std",
-    "voiced_ratio"
+    "mfcc03_mean",
+    "mfcc04_mean",
+    "mfcc04_std",
+    "mfcc10_mean",
+    "mfcc11_std",
+    "mfcc12_std",
+    "mfcc13_mean",
+    "bandwidth_hz_mean"
   ],
   "decision_map": {
     "nyala": "LED/relay ON",

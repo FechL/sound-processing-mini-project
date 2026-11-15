@@ -1,0 +1,86 @@
+{
+  "selected_model": "classical_svm_int8",
+  "target_profile": "MCU_first",
+  "n_replay_samples": 4,
+  "replay_accuracy": 1.0,
+  "replay_agreement_with_mp13": 1.0,
+  "feature_latency_ms": {
+    "mean": 3.12876625,
+    "p95": 3.98843755
+  },
+  "inference_latency_ms": {
+    "mean": 0.032709249999999995,
+    "p95": 0.04379564999999999
+  },
+  "pipeline_latency_ms": {
+    "mean": 3.1614755,
+    "p95": 4.032233199999999
+  },
+  "pipeline_rtf_p95": 0.003360194333333333,
+  "realtime_stride_ms": 100.0,
+  "mp14_overflow_count": 0,
+  "mp15_payload_bytes": 164,
+  "benchmark_scope": "host_reference_replay",
+  "completion_scope": "reference_replay",
+  "physical_deployment_complete": false,
+  "device_benchmark_performed": false,
+  "max_feature_abs_error_vs_mp09": 0.0,
+  "live_action_backend": "console_simulation",
+  "live_microphone_enabled": true,
+  "live_demo": [
+    {
+      "expected": "nyala",
+      "predicted": "mati",
+      "correct": false,
+      "pipeline_ms": 5.797603,
+      "score": 0.4643215475894722,
+      "timestamp_utc": "2026-11-15T13:02:04.511345+00:00",
+      "relay_on": false,
+      "level": 0
+    },
+    {
+      "expected": "mati",
+      "predicted": "nyala",
+      "correct": false,
+      "pipeline_ms": 4.096133,
+      "score": 0.2950611633340242,
+      "timestamp_utc": "2026-11-15T13:02:11.508001+00:00",
+      "relay_on": true,
+      "level": 0
+    },
+    {
+      "expected": "naik",
+      "predicted": "nyala",
+      "correct": false,
+      "pipeline_ms": 4.14763,
+      "score": 0.3287820724430479,
+      "timestamp_utc": "2026-11-15T13:02:13.897492+00:00",
+      "relay_on": true,
+      "level": 0
+    },
+    {
+      "expected": "turun",
+      "predicted": "mati",
+      "correct": false,
+      "pipeline_ms": 4.410514,
+      "score": 0.852195000091885,
+      "timestamp_utc": "2026-11-15T13:02:19.519729+00:00",
+      "relay_on": false,
+      "level": 0
+    }
+  ],
+  "acceptance_checks": {
+    "serial_gate_ready_for_mp16": true,
+    "selected_model_matches_manifest": true,
+    "post_test_tuning_false": true,
+    "mp15_numeric_agreement_test_ge_095": true,
+    "mp14_overflow_is_0": true,
+    "replay_agreement_not_worse_than_mp15": true,
+    "replay_features_are_finite": true,
+    "replay_feature_equivalence_mp09": true,
+    "p95_pipeline_faster_than_inference_stride": true,
+    "p95_pipeline_faster_than_audio_duration": true
+  },
+  "required_acceptance_pass": true,
+  "scientific_note": "Replay test verifies end-to-end implementation consistency; it is not a new independent generalization estimate."
+}

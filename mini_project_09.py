@@ -1,5 +1,6 @@
 from pathlib import Path
 import argparse
+import atexit
 import csv
 from datetime import datetime
 import json
@@ -7,6 +8,8 @@ import shutil
 import tempfile
 import time
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from scipy.io import wavfile
 from scipy.signal import lfilter
@@ -16,11 +19,32 @@ ROOT = Path(__file__).resolve().parent
 STATUS = ROOT / 'project_status.json'
 parser = argparse.ArgumentParser(description='MP9: rekam dataset atau ulangi sampel yang gagal.')
 parser.add_argument('--record', action='store_true', help='Rekam suara asli melalui mikrofon.')
+parser.add_argument('--port', help='MAX9814 lewat ESP32 firmware mic_test, contoh /dev/ttyUSB0; tanpa ini memakai mic komputer.')
+destination = parser.add_mutually_exclusive_group()
+destination.add_argument('--new-dataset', metavar='NAME', help='Buat eksperimen MP9 baru di experiments/NAME; hasil lama tetap utuh.')
+destination.add_argument('--dataset', metavar='NAME', help='Pilih eksperimen yang sudah dibuat di experiments/NAME.')
+parser.add_argument('--resume', action='store_true', help='Lanjutkan dataset parsial tanpa mengulang WAV yang sudah ada (perlu --dataset --record).')
 parser.add_argument('--retry', nargs='+', metavar='SAMPLE_ID',
                     help='Hanya rekam ulang ID tertentu, contoh: naik_b04 naik_b05 (perlu --record).')
 args = parser.parse_args()
 if args.retry and not args.record:
     parser.error('--retry harus digunakan bersama --record.')
+if (args.port or args.new_dataset or args.dataset or args.resume) and not args.record:
+    parser.error('--port/--new-dataset/--dataset/--resume memerlukan --record.')
+if args.new_dataset and args.retry:
+    parser.error('Dataset baru harus merekam semua sampel; jangan gunakan --retry.')
+if args.resume and (not args.dataset or args.retry):
+    parser.error('--resume memerlukan --dataset dan tidak boleh digabung --retry.')
+if args.new_dataset or args.dataset:
+    from mp09_recording import prepare_experiment, experiment_path
+    try:
+        ROOT = prepare_experiment(ROOT, args.new_dataset) if args.new_dataset else experiment_path(ROOT, args.dataset)
+    except (ValueError, FileExistsError) as error:
+        parser.error(str(error))
+    if not (ROOT / 'project_status.json').is_file():
+        parser.error('Eksperimen belum ada. Gunakan --new-dataset NAME terlebih dahulu.')
+    STATUS = ROOT / 'project_status.json'
+    print('Eksperimen dataset:', ROOT)
 FORCE_RECORD = args.record
 RETRY_IDS = set(args.retry or [])
 DEMO_MODE = False if FORCE_RECORD else True
@@ -30,7 +54,23 @@ SEED = 2026
 rng = np.random.default_rng(SEED)
 
 status = json.loads(STATUS.read_text(encoding='utf-8'))
-assert status.get('status') in ['ready_for_mp09', 'ready_for_mp10', 'ready_for_mp11'], status.get('status')
+if status.get('status') not in ['ready_for_mp09', 'ready_for_mp10', 'ready_for_mp11']:
+    parser.error('Dataset sudah dibekukan/dipakai evaluasi. Gunakan --record --new-dataset NAMA --port /dev/ttyUSB0 untuk eksperimen baru; jangan ubah status manual.')
+if args.resume and status.get('status') != 'ready_for_mp09':
+    parser.error('--resume hanya untuk eksperimen parsial dengan status ready_for_mp09.')
+if args.dataset and not args.retry and status.get('status') != 'ready_for_mp09':
+    parser.error('Sesi sudah selesai direkam. Gunakan --retry untuk sampel gagal sebelum evaluasi, atau --new-dataset untuk sesi baru.')
+if args.new_dataset or args.dataset:
+    session_path = ROOT / 'config/recording_session.json'
+    source = 'esp32_max9814_gpio35' if args.port else 'computer_microphone'
+    if session_path.exists():
+        session = json.loads(session_path.read_text(encoding='utf-8'))
+        if session['recording_source'] != source:
+            parser.error('Sumber mikrofon berbeda dari sesi awal; gunakan eksperimen baru agar dataset tidak tercampur.')
+    else:
+        session_path.write_text(json.dumps({'recording_source': source,
+            'parent_project': str(Path(__file__).resolve().parent),
+            'created_at': datetime.now().astimezone().isoformat()}, indent=2), encoding='utf-8')
 
 project_cfg = json.loads((ROOT / 'config/project_config.json').read_text(encoding='utf-8'))
 pre_cfg = json.loads((ROOT / 'config/preprocessing_config.json').read_text(encoding='utf-8'))
@@ -105,11 +145,19 @@ def save_wav(path, y):
         wavfile.write(temporary, FS, np.round(y * 32767).astype(np.int16))
         temporary.replace(path)
 
+serial_microphone = None
+
 def acquire(label, block):
+    global serial_microphone
     path = raw_dir / f'{label}_b{block:02d}.wav'
     if RETRY_IDS and path.stem not in RETRY_IDS:
         return path
     if path.exists() and not FORCE_RECORD:
+        return path
+    if path.exists() and args.resume:
+        fs_existing, existing = wavfile.read(path)
+        if fs_existing != FS or existing.shape != (int(DURATION_S * FS),) or existing.dtype != np.int16:
+            raise RuntimeError(f'WAV parsial tidak valid: {path}; periksa sebelum melanjutkan.')
         return path
     if DEMO_MODE:
         f0 = {'nyala': 170, 'mati': 205, 'naik': 240, 'turun': 145}[label]
@@ -120,14 +168,24 @@ def acquire(label, block):
         save_wav(path, y)
         return path
     else:
-        import sounddevice as sd
+        if args.port:
+            if serial_microphone is None:
+                from mp09_recording import ESP32Microphone
+                print('Menunggu audio MAX9814 / ESP32...')
+                serial_microphone = ESP32Microphone(args.port)
+                atexit.register(serial_microphone.close)
+        else:
+            import sounddevice as sd
         while True:
             input(f'Block {block} | tekan ENTER, lalu ucapkan "{label}" saat perekaman... ')
             print(f'Merekam {DURATION_S:.1f} detik. Ucapkan: {label}')
-            y = sd.rec(int(DURATION_S * FS), samplerate=FS, channels=1, dtype='float32')
-            sd.wait()
-            y = y[:, 0]
-            if not RETRY_IDS:
+            if args.port:
+                y = serial_microphone.record(int(DURATION_S * FS), FS)
+            else:
+                y = sd.rec(int(DURATION_S * FS), samplerate=FS, channels=1, dtype='float32')
+                sd.wait()
+                y = y[:, 0]
+            if not (RETRY_IDS or args.port or args.new_dataset or args.dataset):
                 break
             peak = float(np.max(np.abs(y)))
             clipping = float(np.mean(np.abs(y) >= 0.99))
@@ -137,8 +195,18 @@ def acquire(label, block):
             while True:
                 choice = input('[s] Simpan, [u] Ulangi, [d] Dengarkan: ').strip().lower()
                 if choice == 'd':
-                    sd.play(y, FS)
-                    sd.wait()
+                    if args.port:
+                        from tools.test_max9814_live import load_sounddevice
+                        try:
+                            sd = load_sounddevice()
+                        except SystemExit as error:
+                            print(error)
+                            continue
+                    try:
+                        sd.play(y, FS)
+                        sd.wait()
+                    except Exception as error:
+                        print('Playback tidak tersedia; rekaman tetap aman:', error)
                 elif choice in ('s', 'u'):
                     break
                 else:
@@ -271,7 +339,7 @@ for block in range(1, N_BLOCKS + 1):
             'label': label,
             'group_id': f'block_{block:02d}',
             'subject_id': 'personal_user',
-            'device_id': 'local_mic',
+            'device_id': 'esp32_max9814_gpio35' if args.port else 'local_mic',
             'distance_tag': 'normal',
             'sample_rate_hz': FS,
             'path': p.as_posix()
@@ -280,6 +348,10 @@ for block in range(1, N_BLOCKS + 1):
     if not DEMO_MODE and recorded_this_block and block < N_BLOCKS:
         print('Istirahat 5–10 detik / ubah posisi mikrofon sedikit sebelum block berikutnya.')
         time.sleep(2)
+
+if serial_microphone is not None:
+    serial_microphone.close()
+    atexit.unregister(serial_microphone.close)
 
 # 2) Ekstraksi feature schema MP8 untuk seluruh sampel
 X = []
@@ -356,6 +428,10 @@ np.savez_compressed(dataset_dir / 'mp09_features_39d.npz',
 
 # 5) Config, metrik, visualisasi
 cfg = {
+    'recording_source': 'esp32_max9814_gpio35' if args.port else 'computer_microphone_or_existing_wavs',
+    'acquisition': ({'adc_rate_hz': 32000, 'output_rate_hz': FS, 'dc_alpha': 0.0004,
+                     'fir_taps': 63, 'fir_cutoff_hz': 7200, 'serial_baud': 921600}
+                    if args.port else {}),
     'sampling_rate_hz': FS,
     'labels': LABELS,
     'n_blocks': N_BLOCKS,

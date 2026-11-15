@@ -1,0 +1,264 @@
+{
+  "scope": "host_compiled_firmware_equivalence",
+  "n_samples": 24,
+  "package_id": "8638c45471bfca37",
+  "selected_model": "classical_svm_int8",
+  "selected_feature_atol": 0.01,
+  "all_pass": true,
+  "device_benchmark_performed": false,
+  "rows": [
+    {
+      "sample_id": "nyala_b01",
+      "max_selected_feature_abs_error": 5.960464477539063e-08,
+      "max_live_selected_feature_abs_error": 6.67572021484375e-06,
+      "python_prediction": "nyala",
+      "cpp_prediction": "nyala",
+      "prediction_matches": true,
+      "max_score_abs_error": 1.454266329581344e-08
+    },
+    {
+      "sample_id": "mati_b01",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 0.0006103515625,
+      "python_prediction": "mati",
+      "cpp_prediction": "mati",
+      "prediction_matches": true,
+      "max_score_abs_error": 2.7902380628219703e-08
+    },
+    {
+      "sample_id": "naik_b01",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 1.150369644165039e-05,
+      "python_prediction": "naik",
+      "cpp_prediction": "naik",
+      "prediction_matches": true,
+      "max_score_abs_error": 2.774037954900166e-08
+    },
+    {
+      "sample_id": "turun_b01",
+      "max_selected_feature_abs_error": 0.0001220703125,
+      "max_live_selected_feature_abs_error": 0.0003662109375,
+      "python_prediction": "turun",
+      "cpp_prediction": "turun",
+      "prediction_matches": true,
+      "max_score_abs_error": 2.5759109734124763e-08
+    },
+    {
+      "sample_id": "nyala_b02",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 0.0003662109375,
+      "python_prediction": "nyala",
+      "cpp_prediction": "nyala",
+      "prediction_matches": true,
+      "max_score_abs_error": 2.826549172496584e-08
+    },
+    {
+      "sample_id": "mati_b02",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 0.0001220703125,
+      "python_prediction": "mati",
+      "cpp_prediction": "mati",
+      "prediction_matches": true,
+      "max_score_abs_error": 5.896254062776052e-08
+    },
+    {
+      "sample_id": "naik_b02",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 0.000244140625,
+      "python_prediction": "naik",
+      "cpp_prediction": "naik",
+      "prediction_matches": true,
+      "max_score_abs_error": 2.8677778152186306e-08
+    },
+    {
+      "sample_id": "turun_b02",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 0.00048828125,
+      "python_prediction": "turun",
+      "cpp_prediction": "turun",
+      "prediction_matches": true,
+      "max_score_abs_error": 2.283193789587301e-08
+    },
+    {
+      "sample_id": "nyala_b03",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 0.0001220703125,
+      "python_prediction": "nyala",
+      "cpp_prediction": "nyala",
+      "prediction_matches": true,
+      "max_score_abs_error": 4.2613838679983473e-08
+    },
+    {
+      "sample_id": "mati_b03",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 0.0006103515625,
+      "python_prediction": "mati",
+      "cpp_prediction": "mati",
+      "prediction_matches": true,
+      "max_score_abs_error": 2.5859650976123305e-08
+    },
+    {
+      "sample_id": "naik_b03",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 6.020069122314453e-06,
+      "python_prediction": "naik",
+      "cpp_prediction": "naik",
+      "prediction_matches": true,
+      "max_score_abs_error": 1.0767206903850024e-08
+    },
+    {
+      "sample_id": "turun_b03",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 0.00030517578125,
+      "python_prediction": "turun",
+      "cpp_prediction": "turun",
+      "prediction_matches": true,
+      "max_score_abs_error": 2.335898674488135e-08
+    },
+    {
+      "sample_id": "nyala_b04",
+      "max_selected_feature_abs_error": 0.0001220703125,
+      "max_live_selected_feature_abs_error": 8.940696716308594e-06,
+      "python_prediction": "nyala",
+      "cpp_prediction": "nyala",
+      "prediction_matches": true,
+      "max_score_abs_error": 4.4649946850938704e-08
+    },
+    {
+      "sample_id": "mati_b04",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 0.0003662109375,
+      "python_prediction": "mati",
+      "cpp_prediction": "mati",
+      "prediction_matches": true,
+      "max_score_abs_error": 2.2125952181539787e-08
+    },
+    {
+      "sample_id": "naik_b04",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 0.0009765625,
+      "python_prediction": "naik",
+      "cpp_prediction": "naik",
+      "prediction_matches": true,
+      "max_score_abs_error": 5.7397610664366994e-08
+    },
+    {
+      "sample_id": "turun_b04",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 0.00030517578125,
+      "python_prediction": "turun",
+      "cpp_prediction": "turun",
+      "prediction_matches": true,
+      "max_score_abs_error": 3.581836605093258e-08
+    },
+    {
+      "sample_id": "nyala_b05",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 0.0001220703125,
+      "python_prediction": "nyala",
+      "cpp_prediction": "nyala",
+      "prediction_matches": true,
+      "max_score_abs_error": 5.75116307910406e-08
+    },
+    {
+      "sample_id": "mati_b05",
+      "max_selected_feature_abs_error": 5.960464477539063e-08,
+      "max_live_selected_feature_abs_error": 0.0006103515625,
+      "python_prediction": "mati",
+      "cpp_prediction": "mati",
+      "prediction_matches": true,
+      "max_score_abs_error": 1.3410695998139488e-08
+    },
+    {
+      "sample_id": "naik_b05",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 0.000244140625,
+      "python_prediction": "naik",
+      "cpp_prediction": "naik",
+      "prediction_matches": true,
+      "max_score_abs_error": 1.35435211934265e-08
+    },
+    {
+      "sample_id": "turun_b05",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 0.00048828125,
+      "python_prediction": "turun",
+      "cpp_prediction": "turun",
+      "prediction_matches": true,
+      "max_score_abs_error": 5.95743330222831e-08
+    },
+    {
+      "sample_id": "nyala_b06",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 1.0013580322265625e-05,
+      "python_prediction": "nyala",
+      "cpp_prediction": "nyala",
+      "prediction_matches": true,
+      "max_score_abs_error": 1.8006449997720608e-08
+    },
+    {
+      "sample_id": "mati_b06",
+      "max_selected_feature_abs_error": 2.384185791015625e-07,
+      "max_live_selected_feature_abs_error": 0.00048828125,
+      "python_prediction": "mati",
+      "cpp_prediction": "mati",
+      "prediction_matches": true,
+      "max_score_abs_error": 4.050365132179934e-08
+    },
+    {
+      "sample_id": "naik_b06",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 1.1920928955078125e-05,
+      "python_prediction": "naik",
+      "cpp_prediction": "naik",
+      "prediction_matches": true,
+      "max_score_abs_error": 3.283357974392942e-09
+    },
+    {
+      "sample_id": "turun_b06",
+      "max_selected_feature_abs_error": 1.1920928955078125e-07,
+      "max_live_selected_feature_abs_error": 0.0003662109375,
+      "python_prediction": "turun",
+      "cpp_prediction": "turun",
+      "prediction_matches": true,
+      "max_score_abs_error": 5.8506860911577974e-08
+    }
+  ],
+  "numerical_stress_checks": [
+    {
+      "signal": "silence",
+      "max_live_selected_feature_abs_error": 1.9073486328125e-06,
+      "pass": true
+    },
+    {
+      "signal": "noise",
+      "max_live_selected_feature_abs_error": 0.0001220703125,
+      "pass": true
+    },
+    {
+      "signal": "dc_noise",
+      "max_live_selected_feature_abs_error": 0.0001220703125,
+      "pass": true
+    },
+    {
+      "signal": "tone_50_noise",
+      "max_live_selected_feature_abs_error": 0.0001220703125,
+      "pass": true
+    },
+    {
+      "signal": "tone_300_noise",
+      "max_live_selected_feature_abs_error": 0.00244140625,
+      "pass": true
+    },
+    {
+      "signal": "tone_1000_noise",
+      "max_live_selected_feature_abs_error": 0.00030517578125,
+      "pass": true
+    },
+    {
+      "signal": "tone_6000_noise",
+      "max_live_selected_feature_abs_error": 1.1861324310302734e-05,
+      "pass": true
+    }
+  ]
+}

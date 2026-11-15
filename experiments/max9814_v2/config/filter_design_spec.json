@@ -1,0 +1,13 @@
+{
+  "sample_rate_hz": 16000,
+  "target_interference_hz": 50.0,
+  "hum_attenuation_min_db": 25.0,
+  "speech_band_hz": [
+    150.0,
+    4000.0
+  ],
+  "speech_spectral_distortion_max_db_rms": 1.5,
+  "additional_delay_max_ms": 10.0,
+  "multiplies_per_sample_target": 30,
+  "selection_rule": "meet quality first, then minimize distortion + compute cost + delay"
+}

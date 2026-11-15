@@ -1,0 +1,19 @@
+{
+  "sample_rate_hz": 16000,
+  "hum_frequency_hz": 50.0,
+  "hum_amplitude": 0.04,
+  "fir": {
+    "type": "highpass",
+    "numtaps": 129,
+    "cutoff_hz": 100.0,
+    "group_delay_samples": 64,
+    "group_delay_ms": 4.0
+  },
+  "iir": {
+    "type": "notch",
+    "center_hz": 50.0,
+    "Q": 30.0
+  },
+  "design_stage": "behavior_experiment_not_final_design",
+  "recommended_problem_for_mp06": "suppress_50hz_hum_with_minimal_speech_distortion"
+}

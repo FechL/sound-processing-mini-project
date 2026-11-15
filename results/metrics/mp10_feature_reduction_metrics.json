@@ -8,44 +8,44 @@
   "n_redundant_pairs_abs_corr_ge_threshold": 4,
   "top_10_mutual_information": [
     {
-      "feature": "mfcc02_mean",
-      "score": 0.776861506549007
-    },
-    {
       "feature": "mfcc04_std",
-      "score": 0.7129958583083589
+      "score": 1.046599754412255
     },
     {
-      "feature": "mfcc09_std",
-      "score": 0.45542842574092623
+      "feature": "mfcc04_mean",
+      "score": 0.8454363344988352
+    },
+    {
+      "feature": "mfcc10_mean",
+      "score": 0.8305057789432795
+    },
+    {
+      "feature": "zcr_mean",
+      "score": 0.6101219960594966
+    },
+    {
+      "feature": "bandwidth_hz_mean",
+      "score": 0.5186273795648801
+    },
+    {
+      "feature": "mfcc05_mean",
+      "score": 0.502297355422356
     },
     {
       "feature": "mfcc13_mean",
-      "score": 0.4314445970695977
+      "score": 0.4865792193917198
     },
     {
-      "feature": "mfcc12_mean",
-      "score": 0.4058462370962377
+      "feature": "mfcc13_std",
+      "score": 0.48301230019980057
     },
     {
-      "feature": "mfcc08_std",
-      "score": 0.30966568154068197
-    },
-    {
-      "feature": "mfcc07_std",
-      "score": 0.25629127816627895
+      "feature": "mfcc03_mean",
+      "score": 0.45902534965035
     },
     {
       "feature": "mfcc10_std",
-      "score": 0.2555059523809531
-    },
-    {
-      "feature": "mfcc05_std",
-      "score": 0.23338831307581343
-    },
-    {
-      "feature": "mfcc02_std",
-      "score": 0.23154848623598667
+      "score": 0.41155979437229506
     }
   ],
   "candidate_cv": {
@@ -54,72 +54,72 @@
       "dim": 39,
       "fold_macro_f1": [
         0.6666666666666666,
-        0.6666666666666666,
-        0.6666666666666666,
-        1.0
-      ],
-      "mean_macro_f1": 0.75,
-      "std_macro_f1": 0.14433756729740646
-    },
-    "mi8": {
-      "family": "selection",
-      "dim": 8,
-      "fold_macro_f1": [
-        0.3333333333333333,
         0.41666666666666663,
-        0.3333333333333333,
-        0.41666666666666663
-      ],
-      "mean_macro_f1": 0.375,
-      "std_macro_f1": 0.04166666666666666
-    },
-    "mi12": {
-      "family": "selection",
-      "dim": 12,
-      "fold_macro_f1": [
-        0.375,
-        0.6666666666666666,
-        0.6666666666666666,
-        0.6666666666666666
-      ],
-      "mean_macro_f1": 0.5937499999999999,
-      "std_macro_f1": 0.12629537138523061
-    },
-    "rfe8": {
-      "family": "selection",
-      "dim": 8,
-      "fold_macro_f1": [
-        0.41666666666666663,
-        0.6666666666666666,
         1.0,
         1.0
       ],
       "mean_macro_f1": 0.7708333333333333,
       "std_macro_f1": 0.2456213775531583
     },
+    "mi8": {
+      "family": "selection",
+      "dim": 8,
+      "fold_macro_f1": [
+        1.0,
+        0.41666666666666663,
+        1.0,
+        0.6666666666666666
+      ],
+      "mean_macro_f1": 0.7708333333333333,
+      "std_macro_f1": 0.24562137755315827
+    },
+    "mi12": {
+      "family": "selection",
+      "dim": 12,
+      "fold_macro_f1": [
+        1.0,
+        0.41666666666666663,
+        1.0,
+        0.6666666666666666
+      ],
+      "mean_macro_f1": 0.7708333333333333,
+      "std_macro_f1": 0.24562137755315827
+    },
+    "rfe8": {
+      "family": "selection",
+      "dim": 8,
+      "fold_macro_f1": [
+        1.0,
+        0.6666666666666666,
+        1.0,
+        1.0
+      ],
+      "mean_macro_f1": 0.9166666666666666,
+      "std_macro_f1": 0.14433756729740646
+    },
     "rfe12": {
       "family": "selection",
       "dim": 12,
       "fold_macro_f1": [
-        0.6666666666666666,
-        0.6666666666666666,
         1.0,
-        0.6666666666666666
+        0.6666666666666666,
+        0.6666666666666666,
+        1.0
       ],
-      "mean_macro_f1": 0.7499999999999999,
-      "std_macro_f1": 0.14433756729740646
+      "mean_macro_f1": 0.8333333333333333,
+      "std_macro_f1": 0.16666666666666669
     },
     "pca6": {
       "family": "projection",
       "dim": 6,
       "fold_macro_f1": [
-        0.375,
         0.6666666666666666,
+        0.41666666666666663,
         0.6666666666666666,
-        1.0
+        0.6666666666666666
       ],
-      "mean_macro_f1": 0.6770833333333333,
-      "std_macro_f1": 0.2212162560582844
+      "mean_macro_f1": 0.6041666666666666,
+      "std_macro_f1": 0.10825317547305482
     },
     "lda3": {
       "family": "projection",
@@ -127,25 +127,25 @@
       "fold_macro_f1": [
         1.0,
         0.6666666666666666,
-        0.375,
+        1.0,
         0.6666666666666666
       ],
-      "mean_macro_f1": 0.6770833333333333,
-      "std_macro_f1": 0.2212162560582844
+      "mean_macro_f1": 0.8333333333333333,
+      "std_macro_f1": 0.16666666666666669
     }
   },
-  "best_cv_macro_f1": 0.7708333333333333,
+  "best_cv_macro_f1": 0.9166666666666666,
   "chosen_candidate": "rfe8",
   "chosen_output_dim": 8,
   "selected_feature_names": [
+    "mfcc03_mean",
     "mfcc04_mean",
     "mfcc04_std",
-    "mfcc05_std",
-    "mfcc06_std",
-    "mfcc08_std",
-    "mfcc09_std",
-    "mfcc12_mean",
-    "mfcc13_std"
+    "mfcc10_mean",
+    "mfcc11_std",
+    "mfcc12_std",
+    "mfcc13_mean",
+    "bandwidth_hz_mean"
   ],
   "validation_used_for_selection": false,
   "test_used_for_selection": false

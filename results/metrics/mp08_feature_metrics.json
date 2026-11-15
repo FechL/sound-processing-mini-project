@@ -1,19 +1,19 @@
 {
-  "n_frames": 154,
+  "n_frames": 60,
   "frame_feature_shapes": {
     "log_mel": [
-      154,
+      60,
       26
     ],
     "mfcc": [
-      154,
+      60,
       13
     ]
   },
   "sample_vector_dim": 39,
-  "voiced_ratio": 0.4805194805194805,
-  "mean_f0_hz_voiced": 273.86367397812444,
-  "std_f0_hz_voiced": 93.828628195949,
+  "voiced_ratio": 0.6666666666666666,
+  "mean_f0_hz_voiced": 180.1333159534109,
+  "std_f0_hz_voiced": 55.03073012591781,
   "nan_or_inf_count": 0,
   "feature_names": [
     "mfcc01_mean",

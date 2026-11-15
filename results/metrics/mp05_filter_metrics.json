@@ -1,14 +1,14 @@
 {
-  "power_45_55hz_input": 0.0003986981127152636,
-  "power_45_55hz_fir": 4.418332366640243e-05,
-  "power_45_55hz_iir": 2.3972283713646902e-05,
-  "fir_attenuation_50hz_db": -9.553857975533283,
-  "iir_attenuation_50hz_db": -12.209347709225984,
-  "fir_spectral_distortion_150_4000hz_db_rms": 9.047425270080566,
-  "iir_spectral_distortion_150_4000hz_db_rms": 0.12318253517150879,
+  "power_45_55hz_input": 0.0003782606316532016,
+  "power_45_55hz_fir": 4.195096181547342e-05,
+  "power_45_55hz_iir": 1.382135295102671e-05,
+  "fir_attenuation_50hz_db": -9.550492210376616,
+  "iir_attenuation_50hz_db": -14.372405859065548,
+  "fir_spectral_distortion_150_4000hz_db_rms": 11.601268768310547,
+  "iir_spectral_distortion_150_4000hz_db_rms": 0.15384553372859955,
   "fir_group_delay_ms": 4.0,
   "fir_estimated_multiplies_per_sample": 129,
   "iir_estimated_multiplies_per_sample": 5,
-  "fir_pc_processing_time_s": 0.0013723686000048474,
-  "iir_pc_processing_time_s": 0.00039324242497968954
+  "fir_pc_processing_time_s": 0.0006850503499663318,
+  "iir_pc_processing_time_s": 0.00020030862506246195
 }

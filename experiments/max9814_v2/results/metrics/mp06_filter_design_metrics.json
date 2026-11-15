@@ -1,0 +1,78 @@
+{
+  "spec": {
+    "sample_rate_hz": 16000,
+    "target_interference_hz": 50.0,
+    "hum_attenuation_min_db": 25.0,
+    "speech_band_hz": [
+      150.0,
+      4000.0
+    ],
+    "speech_spectral_distortion_max_db_rms": 1.5,
+    "additional_delay_max_ms": 10.0,
+    "multiplies_per_sample_target": 30,
+    "selection_rule": "meet quality first, then minimize distortion + compute cost + delay"
+  },
+  "selected_filter": "iir_ellip_hp",
+  "candidates": {
+    "fir_hamming_hp": {
+      "hum_attenuation_db": 14.518818207152766,
+      "speech_spectral_distortion_db_rms": 0.3409255112541422,
+      "estimated_multiplies_per_sample": 161,
+      "additional_delay_ms": 5.0,
+      "meets_quality_requirements": false,
+      "selection_score": 2.1283314202183785,
+      "b_len": 161,
+      "a_len": 1
+    },
+    "fir_remez_hp": {
+      "hum_attenuation_db": 32.74614937181564,
+      "speech_spectral_distortion_db_rms": 1.5332916876365836,
+      "estimated_multiplies_per_sample": 161,
+      "additional_delay_ms": 5.0,
+      "meets_quality_requirements": false,
+      "selection_score": 3.2295609407775054,
+      "b_len": 161,
+      "a_len": 1
+    },
+    "iir_ellip_hp": {
+      "hum_attenuation_db": 50.19696968623509,
+      "speech_spectral_distortion_db_rms": 0.8728764116699563,
+      "estimated_multiplies_per_sample": 9,
+      "additional_delay_ms": 0.7071688833714738,
+      "meets_quality_requirements": true,
+      "selection_score": 0.7472500074073545,
+      "b_len": 5,
+      "a_len": 5
+    },
+    "iir_notch_q20": {
+      "hum_attenuation_db": 19.683511808740022,
+      "speech_spectral_distortion_db_rms": 0.00016364360475055762,
+      "estimated_multiplies_per_sample": 5,
+      "additional_delay_ms": 0.003626299292749019,
+      "meets_quality_requirements": false,
+      "selection_score": -0.048072600474312104,
+      "b_len": 3,
+      "a_len": 3
+    },
+    "iir_notch_q30": {
+      "hum_attenuation_db": 17.281764479652594,
+      "speech_spectral_distortion_db_rms": 8.585011920969661e-05,
+      "estimated_multiplies_per_sample": 5,
+      "additional_delay_ms": 0.00241760746333744,
+      "meets_quality_requirements": false,
+      "selection_score": -0.036202091905886406,
+      "b_len": 3,
+      "a_len": 3
+    },
+    "iir_notch_q40": {
+      "hum_attenuation_db": 15.363864593377567,
+      "speech_spectral_distortion_db_rms": 5.928862655302291e-05,
+      "estimated_multiplies_per_sample": 5,
+      "additional_delay_ms": 0.0018132251802137136,
+      "meets_quality_requirements": false,
+      "selection_score": -0.02666937308132413,
+      "b_len": 3,
+      "a_len": 3
+    }
+  }
+}
