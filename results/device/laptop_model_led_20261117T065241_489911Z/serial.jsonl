@@ -1,0 +1,15 @@
+{"type": "identity", "mode": "led_only", "protocol": 1, "led_gpio": 25, "ready_led_gpio": 2, "host_timestamp_utc": "2026-11-17T06:52:41.706645+00:00"}
+{"type": "ack", "sequence": 1, "command": "nyala", "led_on": true, "led_level": 3, "host_timestamp_utc": "2026-11-17T06:52:45.581373+00:00"}
+{"type": "ack", "sequence": 2, "command": "turun", "led_on": true, "led_level": 2, "host_timestamp_utc": "2026-11-17T06:52:47.884878+00:00"}
+{"type": "ack", "sequence": 3, "command": "turun", "led_on": true, "led_level": 1, "host_timestamp_utc": "2026-11-17T06:52:50.189326+00:00"}
+{"type": "ack", "sequence": 4, "command": "turun", "led_on": true, "led_level": 1, "host_timestamp_utc": "2026-11-17T06:52:52.321993+00:00"}
+{"type": "ack", "sequence": 5, "command": "nyala", "led_on": true, "led_level": 1, "host_timestamp_utc": "2026-11-17T06:52:54.669691+00:00"}
+{"type": "ack", "sequence": 6, "command": "turun", "led_on": true, "led_level": 1, "host_timestamp_utc": "2026-11-17T06:52:56.718374+00:00"}
+{"type": "ack", "sequence": 7, "command": "nyala", "led_on": true, "led_level": 1, "host_timestamp_utc": "2026-11-17T06:53:00.007287+00:00"}
+{"type": "ack", "sequence": 8, "command": "naik", "led_on": true, "led_level": 2, "host_timestamp_utc": "2026-11-17T06:53:10.932063+00:00"}
+{"type": "ack", "sequence": 9, "command": "turun", "led_on": true, "led_level": 1, "host_timestamp_utc": "2026-11-17T06:53:12.426707+00:00"}
+{"type": "ack", "sequence": 10, "command": "naik", "led_on": true, "led_level": 2, "host_timestamp_utc": "2026-11-17T06:53:13.879016+00:00"}
+{"type": "ack", "sequence": 11, "command": "naik", "led_on": true, "led_level": 3, "host_timestamp_utc": "2026-11-17T06:53:15.074340+00:00"}
+{"type": "ack", "sequence": 12, "command": "turun", "led_on": true, "led_level": 2, "host_timestamp_utc": "2026-11-17T06:53:18.441851+00:00"}
+{"type": "ack", "sequence": 13, "command": "nyala", "led_on": true, "led_level": 2, "host_timestamp_utc": "2026-11-17T06:53:20.274808+00:00"}
+{"type": "ack", "sequence": 15, "command": "mati", "led_on": false, "led_level": 2, "host_timestamp_utc": "2026-11-17T06:53:23.513258+00:00"}

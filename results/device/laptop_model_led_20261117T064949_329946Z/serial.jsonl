@@ -1,0 +1,8 @@
+{"type": "identity", "mode": "led_only", "protocol": 1, "led_gpio": 25, "ready_led_gpio": 2, "host_timestamp_utc": "2026-11-17T06:49:49.546670+00:00"}
+{"type": "ack", "sequence": 1, "command": "nyala", "led_on": true, "led_level": 3, "host_timestamp_utc": "2026-11-17T06:49:56.329262+00:00"}
+{"type": "ack", "sequence": 2, "command": "nyala", "led_on": true, "led_level": 3, "host_timestamp_utc": "2026-11-17T06:49:59.017600+00:00"}
+{"type": "ack", "sequence": 3, "command": "nyala", "led_on": true, "led_level": 3, "host_timestamp_utc": "2026-11-17T06:50:02.969967+00:00"}
+{"type": "ack", "sequence": 4, "command": "nyala", "led_on": true, "led_level": 3, "host_timestamp_utc": "2026-11-17T06:50:05.008349+00:00"}
+{"type": "ack", "sequence": 5, "command": "naik", "led_on": true, "led_level": 4, "host_timestamp_utc": "2026-11-17T06:50:10.960027+00:00"}
+{"type": "ack", "sequence": 6, "command": "nyala", "led_on": true, "led_level": 4, "host_timestamp_utc": "2026-11-17T06:50:19.053718+00:00"}
+{"type": "ack", "sequence": 7, "command": "mati", "led_on": false, "led_level": 4, "host_timestamp_utc": "2026-11-17T06:50:23.180613+00:00"}

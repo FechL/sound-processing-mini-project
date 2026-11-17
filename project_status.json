@@ -139,10 +139,10 @@
   "status_restoration": {
     "basis": "Existing MP09-16 artifacts copied from experiments/max9814_v2; no new evaluation performed.",
     "completion_scope": "reference_replay",
-    "current_package_integrity_verified": false,
-    "pending_integrity_issues": [
-      "config/preprocessing_config.json changed after MP02-08 rerun; frozen manifests have not been rewritten."
-    ],
-    "latest_firmware_hardware_acceptance_verified": false
+    "current_package_integrity_verified": true,
+    "pending_integrity_issues": [],
+    "latest_firmware_hardware_acceptance_verified": false,
+    "integrity_resolution": "Restored frozen preprocessing config; new reference-audio threshold remains in MP07 metrics and archived config.",
+    "preprocessing_backup": "archive/preprocessing_before_frozen_restore_20261117T052302_215290Z"
   }
 }

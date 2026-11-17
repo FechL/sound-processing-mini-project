@@ -160,6 +160,14 @@ baru dan tidak mengizinkan retraining. Untuk demo mikrofon setelah replay:
 .venv/bin/python mini_project_16.py --live
 ```
 
+`results/predictions/mp16_live_predictions.csv` telah diedit manual untuk
+contoh tampilan: keempat prediksi dibuat benar dan skornya direkayasa. Angka
+latensi dan waktu berasal dari rekaman awal; kombinasi nilai dalam CSV ini
+bukan hasil pengukuran model. Hasil asli ada di
+`results/predictions/mp16_live_predictions_observed.csv` dan tetap tercatat
+dalam `results/metrics/mp16_acceptance_metrics.json` bagian `live_demo`.
+Menjalankan ulang `mini_project_16.py --live` akan menimpa CSV yang diedit ini.
+
 Hasil utama: `results/metrics/mp13_final_test_metrics.json`,
 `results/metrics/mp15_deployment_metrics.json`,
 `results/metrics/mp16_acceptance_metrics.json`, dan

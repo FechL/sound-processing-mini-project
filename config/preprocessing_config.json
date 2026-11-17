@@ -14,7 +14,7 @@
   "vad": {
     "method": "frame_rms_adaptive",
     "relative_factor": 0.25,
-    "threshold": 0.044208070023353044,
+    "threshold": 0.04371989001102753,
     "margin_frames": 2
   },
   "denoise": {

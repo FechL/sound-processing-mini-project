@@ -1,0 +1,5 @@
+{"type": "identity", "mode": "led_only", "protocol": 1, "led_gpio": 25, "ready_led_gpio": 2, "host_timestamp_utc": "2026-11-17T06:49:38.109453+00:00"}
+{"type": "ack", "sequence": 1, "command": "nyala", "led_on": true, "led_level": 3, "host_timestamp_utc": "2026-11-17T06:49:41.388822+00:00"}
+{"type": "ack", "sequence": 2, "command": "nyala", "led_on": true, "led_level": 3, "host_timestamp_utc": "2026-11-17T06:49:42.586343+00:00"}
+{"type": "ack", "sequence": 3, "command": "naik", "led_on": true, "led_level": 4, "host_timestamp_utc": "2026-11-17T06:49:44.166308+00:00"}
+{"type": "ack", "sequence": 4, "command": "mati", "led_on": false, "led_level": 4, "host_timestamp_utc": "2026-11-17T06:49:46.637234+00:00"}

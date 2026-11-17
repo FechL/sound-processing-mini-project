@@ -1,0 +1,14 @@
+{
+  "input": "laptop_microphone",
+  "processing": "esp32",
+  "sample_rate_hz": 16000,
+  "counters": {
+    "captured_blocks": 6024,
+    "host_drops": 0,
+    "input_overflows": 0,
+    "sent_blocks": 6022
+  },
+  "failures": [],
+  "acceptance_evaluated": false,
+  "note": "Different microphone from frozen MAX9814 dataset; accuracy not established."
+}

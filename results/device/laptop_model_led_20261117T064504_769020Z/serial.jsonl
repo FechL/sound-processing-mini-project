@@ -1,0 +1,2 @@
+{"type": "identity", "mode": "led_only", "protocol": 1, "led_gpio": 25, "ready_led_gpio": 2, "host_timestamp_utc": "2026-11-17T06:45:04.990138+00:00"}
+{"type": "ack", "sequence": 2, "command": "mati", "led_on": false, "led_level": 3, "host_timestamp_utc": "2026-11-17T06:45:11.530497+00:00"}
